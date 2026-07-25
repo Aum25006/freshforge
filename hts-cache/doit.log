@@ -1,0 +1,8 @@
+https://bananablossomsalads.com/ -O /Users/Tirth/website-inspiration/bananablossomsalads -* +https://bananablossomsalads.com/* +https://www.bananablossomsalads.com/* +https://fonts.googleapis.com/* +https://fonts.gstatic.com/* +https://code.jquery.com/* +https://www.googletagmanager.com/* +https://www.gstatic.com/* -n -%v -v
+File generated automatically on Tue, 09 Jun 2026 08:51:04, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

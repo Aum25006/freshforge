@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g transform="translate(-102 -201)">
+    <g transform="translate(102 201)" fill="#002c1f" stroke="#fff" stroke-width="1">
+      <circle cx="17" cy="17" r="17" stroke="none"></circle>
+      <circle cx="17" cy="17" r="16.5" fill="none"></circle>
+    </g>
+    <path d="M-3.612-10.56H3.131v2.095H-1.227v2.157H3.09v2.031H-1.227v2.183H3.131V0H-3.612Z" transform="translate(119 223)" fill="#f4f4f4"></path>
+  </g>
+</svg>
