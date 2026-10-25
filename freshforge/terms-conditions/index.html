@@ -5,6 +5,9 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="../img/ff.png">
+	<link rel="shortcut icon" type="image/png" href="../img/ff.png">
+	<link rel="apple-touch-icon" href="../img/ff.png">
 <script>
 var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
 </script>
@@ -560,11 +563,25 @@ body .page-submenu li a {
 									<div class="right-aligned-menu-items">
 						<nav>
 							<ul class="buttons sf-menu" data-user-set-ocm="1">
-
-								<li class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-618"><a href="../order/index.html"><span class="menu-title-text">Order Now</span></a></li>
-<li id="menu-item-2319" class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-2319"><a href="../catering/index.html"><span class="menu-title-text">Catering</span></a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-619"><a href="../menu/index.html"><span class="menu-title-text">Our Menu</span></a></li>
-<li class="slide-out-widget-area-toggle" data-icon-animation="simple-transform" data-custom-color="true"><div> <a href="#slide-out-widget-area" aria-label="Navigation Menu" aria-expanded="false" role="button" class="closed"> <span class="screen-reader-text">Menu</span><span aria-hidden="true"> <i class="lines-button x2"> <i class="lines"></i> </i> </span> </a> </div></li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item">
+									<a href="../index.html"><span class="menu-title-text">Home</span></a>
+								</li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item">
+									<a href="../subscription/index.html"><span class="menu-title-text">Subscription</span></a>
+								</li>
+								<li id="menu-item-2319" class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-2319">
+									<a href="../menu/index.html"><span class="menu-title-text">Our Menu</span></a>
+								</li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item">
+									<a href="../about/index.html"><span class="menu-title-text">About us</span></a>
+								</li>
+								<li class="menu-item menu-item-type-post_type nectar-regular-menu-item">
+									<a href="../cart/index.html" style="position: relative; display: flex; align-items: center; gap: 8px;">
+										<i class="fa fa-shopping-cart" style="font-size: 18px;"></i>
+										<span class="menu-title-text">Cart</span>
+										<span id="header-cart-badge" style="position: absolute; top: -10px; right: -15px; background: #ffce59; color: #000; border-radius: 50%; padding: 2px 6px; font-size: 12px; font-weight: bold;">0</span>
+									</a>
+								</li>
 							</ul>
 
 													</nav>
@@ -796,43 +813,16 @@ $5 off offer</strong></h3>
 
 
 									<div class="off-canvas-menu-container mobile-only" role="navigation">
-
-						
-						<ul class="menu">
-							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2319"><a href="../catering/index.html">Catering</a></li>
-
-						</ul>
-
-						<ul class="menu secondary-header-items">
-													</ul>
-					</div>
-										<div class="off-canvas-menu-container" role="navigation">
-						<ul class="menu">
-							<li id="menu-item-687" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-687"><a href="../index.html">Home</a></li>
-<li id="menu-item-406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-406"><a href="../order/index.html">Order Now</a></li>
-<li id="menu-item-409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-409"><a href="../menu/index.html">Our Menu</a></li>
-<li id="menu-item-2737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2737"><a href="https://squareup.com/gift/MLYSRBFHADKPV/order">Gift Cards</a></li>
-<li id="menu-item-407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-407"><a href="../locations/index.html">Locations</a></li>
-<li id="menu-item-1069" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1069"><a href="../about/index.html" aria-haspopup="true" aria-expanded="false">About Us</a>
-<ul class="sub-menu">
-	<li id="menu-item-1719" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1719"><a href="../about/index.html">About Banana Blossom</a></li>
-	<li id="menu-item-506" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-506"><a href="../jobs/index.html">Careers</a></li>
-	<li id="menu-item-2003" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2003"><a href="../rewards/index.html">Tasty Rewards</a></li>
-	<li id="menu-item-2125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2125"><a href="../our-famous-triple-chilli-sauce/index.html">Our Famous Triple Chilli Sauce</a></li>
-</ul>
-</li>
-<li id="menu-item-2317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2317"><a href="../catering/index.html">Catering</a></li>
-<li id="menu-item-2104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2104"><a href="../shred/index.html">Lower-carb: SHRED</a></li>
-<li id="menu-item-505" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-505"><a href="../franchise/index.html" aria-haspopup="true" aria-expanded="false">Franchising</a>
-<ul class="sub-menu">
-	<li id="menu-item-2733" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2733"><a href="../franchise/index.html">Own a franchise</a></li>
-	<li id="menu-item-2734" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2734"><a href="../franchise/franchise-opportunities/index.html">Franchise opportunities</a></li>
-</ul>
-</li>
-<li id="menu-item-2575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2575"><a href="../blog/index.html">News</a></li>
-<li id="menu-item-408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-408"><a href="../contact-us/index.html">Contact us</a></li>
-
-						</ul>
+										<ul class="menu secondary-header-items"></ul>
+									</div>
+									<div class="off-canvas-menu-container" role="navigation">
+										<ul class="menu">
+											<li id="menu-item-687" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-687"><a href="../index.html">Home</a></li>
+											<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../subscription/index.html">Subscription</a></li>
+											<li id="menu-item-409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-409"><a href="../menu/index.html">Our Menu</a></li>
+											<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../about/index.html">About Us</a></li>
+											<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../cart/index.html">Cart</a></li>
+										</ul>
 
 							
 					</div>
@@ -980,12 +970,6 @@ var nectar_front_i18n = {"menu":"Menu","next":"Next","previous":"Previous","clos
 <script id="nectar-frontend-js" src="../wp-content/themes/salient/js/build/init4ee5.js?ver=17.4.1"></script>
 <script id="touchswipe-js" src="../wp-content/plugins/salient-core/js/third-party/touchswipe.min5152.js?ver=1.0"></script>
 <script id="select2-js" src="../wp-content/themes/salient/js/build/third-party/select2.minf39e.js?ver=4.0.1"></script>
-<script id="gforms_recaptcha_recaptcha-js-extra">
-var gforms_recaptcha_recaptcha_strings = {"nonce":"38d8349d84","disconnect":"Disconnecting","change_connection_type":"Resetting","spinner":"https://bananablossomsalads.com/wp-content/plugins/gravityforms/images/spinner.svg","connection_type":"classic","disable_badge":"","change_connection_type_title":"Change Connection Type","change_connection_type_message":"Changing the connection type will delete your current settings.  Do you want to proceed?","disconnect_title":"Disconnect","disconnect_message":"Disconnecting from reCAPTCHA will delete your current settings.  Do you want to proceed?","site_key":"6LfyoC0nAAAAAMHI4bzac_UWmWRPr5DBbxiyOd9w"};
-//# sourceURL=gforms_recaptcha_recaptcha-js-extra
-</script>
-<script data-wp-strategy="defer" defer id="gforms_recaptcha_recaptcha-js" src="https://www.google.com/recaptcha/api.js?render=6LfyoC0nAAAAAMHI4bzac_UWmWRPr5DBbxiyOd9w&amp;ver=2.2.2"></script>
-<script data-wp-strategy="defer" defer id="gforms_recaptcha_frontend-js" src="../wp-content/plugins/gravityformsrecaptcha/js/frontend.min605a.js?ver=2.2.2"></script>
 <script id="jquery-bind-first-js" defer src="../wp-content/plugins/pixelyoursite/dist/scripts/jquery.bind-first-0.2.3.minf096.js?ver=0.2.3"></script>
 <script id="js-cookie-pys-js" defer src="../wp-content/plugins/pixelyoursite/dist/scripts/js.cookie-2.1.3.min4c71.js?ver=2.1.3"></script>
 <script id="js-tld-js" defer src="../wp-content/plugins/pixelyoursite/dist/scripts/tld.min254d.js?ver=2.3.1"></script>

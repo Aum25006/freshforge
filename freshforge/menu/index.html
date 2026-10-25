@@ -7,6 +7,10 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="../img/ff.png">
+	<link rel="shortcut icon" type="image/png" href="../img/ff.png">
+	<link rel="apple-touch-icon" href="../img/ff.png">
+
 	<script>
 		var gform; gform || (document.addEventListener("gform_main_scripts_loaded", function () { gform.scriptsLoaded = !0 }), document.addEventListener("gform/theme/scripts_loaded", function () { gform.themeScriptsLoaded = !0 }), window.addEventListener("DOMContentLoaded", function () { gform.domLoaded = !0 }), gform = { domLoaded: !1, scriptsLoaded: !1, themeScriptsLoaded: !1, isFormEditor: () => "function" == typeof InitializeEditor, callIfLoaded: function (o) { return !(!gform.domLoaded || !gform.scriptsLoaded || !gform.themeScriptsLoaded && !gform.isFormEditor() || (gform.isFormEditor() && console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."), o(), 0)) }, initializeOnLoaded: function (o) { gform.callIfLoaded(o) || (document.addEventListener("gform_main_scripts_loaded", () => { gform.scriptsLoaded = !0, gform.callIfLoaded(o) }), document.addEventListener("gform/theme/scripts_loaded", () => { gform.themeScriptsLoaded = !0, gform.callIfLoaded(o) }), window.addEventListener("DOMContentLoaded", () => { gform.domLoaded = !0, gform.callIfLoaded(o) })) }, hooks: { action: {}, filter: {} }, addAction: function (o, r, e, t) { gform.addHook("action", o, r, e, t) }, addFilter: function (o, r, e, t) { gform.addHook("filter", o, r, e, t) }, doAction: function (o) { gform.doHook("action", o, arguments) }, applyFilters: function (o) { return gform.doHook("filter", o, arguments) }, removeAction: function (o, r) { gform.removeHook("action", o, r) }, removeFilter: function (o, r, e) { gform.removeHook("filter", o, r, e) }, addHook: function (o, r, e, t, n) { null == gform.hooks[o][r] && (gform.hooks[o][r] = []); var d = gform.hooks[o][r]; null == n && (n = r + "_" + d.length), gform.hooks[o][r].push({ tag: n, callable: e, priority: t = null == t ? 10 : t }) }, doHook: function (r, o, e) { var t; if (e = Array.prototype.slice.call(e, 1), null != gform.hooks[r][o] && ((o = gform.hooks[r][o]).sort(function (o, r) { return o.priority - r.priority }), o.forEach(function (o) { "function" != typeof (t = o.callable) && (t = window[t]), "action" == r ? t.apply(null, e) : e[0] = t.apply(null, e) })), "filter" == r) return e[0] }, removeHook: function (o, r, t, n) { var e; null != gform.hooks[o][r] && (e = (e = gform.hooks[o][r]).filter(function (o, r, e) { return !!(null != n && n != o.tag || null != t && t != o.priority) }), gform.hooks[o][r] = e) } });
 	</script>
@@ -2918,13 +2922,16 @@
 											class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-618">
 											<a href="../index.html"><span class="menu-title-text">Home</span></a>
 										</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item">
+											<a href="../subscription/index.html"><span class="menu-title-text">Subscription</span></a>
+										</li>
 										<li id="menu-item-2319"
 											class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-2319">
 											<a href="menu.html"><span
 													class="menu-title-text">Our Menu</span></a></li>
 										<li
 											class="menu-item menu-item-type-post_type menu-item-object-page nectar-regular-menu-item menu-item-619">
-											<a href="about/index.html"><span class="menu-title-text">About us</span></a>
+											<a href="../about/index.html"><span class="menu-title-text">About us</span></a>
 										</li>
 										<li class="menu-item menu-item-type-post_type nectar-regular-menu-item">
 											<a href="../cart/index.html" style="position: relative; display: flex; align-items: center; gap: 8px;">
@@ -3000,7 +3007,7 @@
 																		data-animation-offset="" data-m-rm-animation=""
 																		data-stagger="" data-custom-font-size="true"
 																		style="font-size: 17vw; line-height: 18.7vw;">
-																		<h1 style=" color: #a0bf7f;">OUR MANU</h1>
+																		<h1 style=" color: #a0bf7f;">OUR MENU</h1>
 																	</div>
 																</div>
 																<div class="nectar-split-heading  font_size_4vw font_size_phone_32px font_line_height_-9 "
@@ -3094,7 +3101,9 @@
             text-align: left;
             color: #002C1F;
             font-family: 'League Spartan', sans-serif;
-            font-size: 48px;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 50px;
             margin-top: 0;
         }
@@ -3331,34 +3340,23 @@
 
 
 <main class="menu-page-wrapper">
-        <h1 class="menu-page-title">Explore Our Menu</h1>
+        <h6 class="menu-page-title" style="color: #002c1f; font-family: 'League Spartan', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.2;">Explore Our Menu</h6>
         
         <div class="menu-grid">
+			<!-- Menu Item 1 -->
 			<div class="menu-card">
                 <div class="menu-card-left">
                     <div class="menu-card-icons">
                         <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
-                    <h3>Bean Burst</h3>
+                    <h3>Sprouts Storm</h3>
                     <div class="detail-badges">
                         <span class="badge"><i class="fa fa-fire"></i> 250 kcal</span>
                         <span class="badge"><i class="fa fa-bolt"></i> 50g Protein</span>                    </div>
                     <p class="description">A protein-packed bowl of mixed beans, sweet corn, diced red onion, and fresh greens.</p>
-                    
-                    <div class="menu-action-row">
-                        <p class="price">₹129</p>
-                        <div class="cart-controls">
-                            <div class="qty-control">
-                                <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                                <span class="qty">1</span>
-                                <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add</button>
-                        </div>
-                    </div>
                 </div>
                 <div class="menu-card-img-wrapper">
-                    <img src="../img/5.png" alt="Bean Burst Bowl" class="menu-card-img">
+                    <img src="../img/IMG_4400.PNG" alt="Bean Burst Bowl" class="menu-card-img" style="object-fit: contain !important; transform: scale(1.18) !important;">
                 </div>
             </div>
 
@@ -3368,23 +3366,11 @@
                     <div class="menu-card-icons">
                         <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
-                    <h3>Mediterranean</h3>
+                    <h3>Lean Leaf</h3>
                     <div class="detail-badges">
                         <span class="badge"><i class="fa fa-fire"></i> 420 kcal</span>
                         <span class="badge"><i class="fa fa-bolt"></i> 16g Protein</span>                    </div>
-                    <p class="description">Cherry tomatoes, black olives, chickpeas, cucumber, feta cheese, and creamy herb sauce.</p>
-                    
-                    <div class="menu-action-row">
-                        <p class="price">₹159</p>
-                        <div class="cart-controls">
-                            <div class="qty-control">
-                                <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                                <span class="qty">1</span>
-                                <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add</button>
-                        </div>
-                    </div>
+                    <p class="description">Fresh cucumbers, carrots, beetroot, and paneer with a light herb dressing.</p>
                 </div>
                 <div class="menu-card-img-wrapper">
                     <img src="../img/6.png" alt="Mediterranean Bowl" class="menu-card-img">
@@ -3397,26 +3383,15 @@
                     <div class="menu-card-icons">
                         <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
-                    <h3>Paneer Forge</h3>
+                    <h3>Bean Burst</h3>
                     <div class="detail-badges">
-                        <span class="badge"><i class="fa fa-fire"></i> 500 kcal</span>
-                        <span class="badge"><i class="fa fa-bolt"></i> 30g Protein</span>                    </div>
-                    <p class="description">Grilled paneer cubes, edamame, cucumber, and couscous with our signature fresh herb dressing.</p>
-                    
-                    <div class="menu-action-row">
-                        <p class="price">₹149</p>
-                        <div class="cart-controls">
-                            <div class="qty-control">
-                                <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                                <span class="qty">1</span>
-                                <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add</button>
-                        </div>
+                        <span class="badge"><i class="fa fa-fire"></i> 300 kcal</span>
+                        <span class="badge"><i class="fa fa-bolt"></i> 20g Protein</span>
                     </div>
+                    <p class="description">Cucumber, onion, tomato, rajma, sweet corn, and spinach with a creamy paneer dressing.</p>
                 </div>
                 <div class="menu-card-img-wrapper">
-                    <img src="../img/7.png" alt="Paneer Forge Bowl" class="menu-card-img">
+                    <img src="../img/8.png" alt="Tofu Power Bowl" class="menu-card-img">
                 </div>
             </div>
 
@@ -3426,27 +3401,14 @@
                     <div class="menu-card-icons">
                         <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
-                    <h3>Tofu Power</h3>
+                    <h3>Tofu Power Bowl</h3>
                     <div class="detail-badges">
-                        <span class="badge"><i class="fa fa-fire"></i> 300 kcal</span>
-                        <span class="badge"><i class="fa fa-bolt"></i> 20g Protein</span>
-                    </div>
-                    <p class="description">Soft tofu cubes, quinoa, pomegranate, carrots, and edamame with a light citrus vinaigrette.</p>
-                    
-                    <div class="menu-action-row">
-                        <p class="price">₹139</p>
-                        <div class="cart-controls">
-                            <div class="qty-control">
-                                <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                                <span class="qty">1</span>
-                                <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add</button>
-                        </div>
-                    </div>
+                        <span class="badge"><i class="fa fa-fire"></i> 500 kcal</span>
+                        <span class="badge"><i class="fa fa-bolt"></i> 30g Protein</span>                    </div>
+                    <p class="description">Lettuce, bell pepper, tofu, onion, sweet corn with a honey mustard dressing.</p>
                 </div>
                 <div class="menu-card-img-wrapper">
-                    <img src="../img/8.png" alt="Tofu Power Bowl" class="menu-card-img">
+                    <img src="../img/im4.png" alt="Tofu Power Bowl" class="menu-card-img" style="object-fit: contain !important; transform: scale(1.18) !important;">
                 </div>
             </div>
 
@@ -3456,57 +3418,53 @@
                     <div class="menu-card-icons">
                         <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
-                    <h3>Lean Leaf</h3>
+                    <h3>Paneer Forge</h3>
                     <div class="detail-badges">
                         <span class="badge"><i class="fa fa-fire"></i> 350 kcal</span>
                         <span class="badge"><i class="fa fa-bolt"></i> 20g Protein</span>
                     </div>
-                    <p class="description">Fresh greens, avocado, cherry tomatoes, and a light citrus vinaigrette dressing.</p>
-                    
-                    <div class="menu-action-row">
-                        <p class="price">₹129</p>
-                        <div class="cart-controls">
-                            <div class="qty-control">
-                                <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                                <span class="qty">1</span>
-                                <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add</button>
-                        </div>
-                    </div>
+                    <p class="description">Cucumber, paneer, quinoa, sprouts with a refreshing mint dressing.</p>
                 </div>
                 <div class="menu-card-img-wrapper">
                     <img src="../img/5.png" alt="Lean Leaf Bowl" class="menu-card-img">
                 </div>
             </div>
 
-            <!-- Menu Item 6 -->
+
+
+            <!-- Menu Item 6: Mediterranean -->
             <div class="menu-card">
                 <div class="menu-card-left">
                     <div class="menu-card-icons">
                         <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
-                    <h3>Sprouts Storm</h3>
+                    <h3>Mediterranean</h3>
+                    <div class="detail-badges">
+                        <span class="badge"><i class="fa fa-fire"></i> 420 kcal</span>
+                        <span class="badge"><i class="fa fa-bolt"></i> 16g Protein</span>
+                    </div>
+                    <p class="description">Chickpeas, olives, cherry tomatoes, cucumber, feta cheese, and olive mustard dressing.</p>
+                </div>
+                <div class="menu-card-img-wrapper">
+                    <img src="../img/im6.png" alt="Mediterranean Bowl" class="menu-card-img" style="object-fit: contain !important; transform: scale(1.18) !important;">
+                </div>
+            </div>
+
+            <!-- Menu Item 7: Fruit bowl -->
+            <div class="menu-card">
+                <div class="menu-card-left">
+                    <div class="menu-card-icons">
+                        <button class="icon-btn icon-heart" aria-label="Favorite"><i class="fa fa-heart-o"></i></button>
+                    </div>
+                    <h3>Fruit bowl</h3>
                     <div class="detail-badges">
                         <span class="badge"><i class="fa fa-fire"></i> 330 kcal</span>
                         <span class="badge"><i class="fa fa-bolt"></i> 20g Protein</span>
                     </div>
-                    <p class="description">Crunchy sprouts, red onion, sweet corn, mixed seeds, and zesty lemon dressing.</p>
-                    
-                    <div class="menu-action-row">
-                        <p class="price">₹99</p>
-                        <div class="cart-controls">
-                            <div class="qty-control">
-                                <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-                                <span class="qty">1</span>
-                                <button class="qty-btn plus" aria-label="Increase quantity">+</button>
-                            </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add</button>
-                        </div>
-                    </div>
+                    <p class="description">Seasonal bowl.</p>
                 </div>
                 <div class="menu-card-img-wrapper">
-                    <img src="../img/6.png" alt="Sprouts Storm Bowl" class="menu-card-img">
+                    <img src="../img/im7.png" alt="Fruit bowl" class="menu-card-img" style="object-fit: contain !important; transform: scale(1.18) !important;">
                 </div>
             </div>
 
@@ -3589,7 +3547,7 @@
 																					</li>
 																					<li id="menu-item-1416"
 																						class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1416">
-																						<a href="about/index.html">About Us</a>
+																						<a href="../about/index.html">About Us</a>
 																					</li>
 																				</ul>
 																			</div>
@@ -3777,11 +3735,6 @@
 								</span> 
 							</a>
 							<div class="off-canvas-menu-container mobile-only" role="navigation">
-								<ul class="menu">
-									<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2319">
-										<a href="../catering/index.html">Catering</a>
-									</li>
-								</ul>
 								<ul class="menu secondary-header-items"></ul>
 							</div>
 							<div class="off-canvas-menu-container" role="navigation">
@@ -3789,13 +3742,18 @@
 									<li id="menu-item-687"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-687">
 										<a href="../index.html">Home</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page">
+										<a href="../subscription/index.html">Subscription</a></li>
 									<li id="menu-item-409"
 										class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-143 current_page_item menu-item-409">
 										<a href="index.html" aria-current="page">Our Menu</a>
 									</li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page">
+										<a href="../about/index.html">About Us</a>
+									</li>
 									<li id="menu-item-406"
 										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-406">
-										<a href="../cart/index.html">Order Now</a>
+										<a href="../cart/index.html">Cart</a>
 									</li>
 								</ul>
 							</div>
@@ -4036,14 +3994,6 @@
 		src="../wp-content/plugins/salient-core/js/third-party/touchswipe.min5152.js?ver=1.0"></script>
 	<script id="select2-js"
 		src="../wp-content/themes/salient/js/build/third-party/select2.minf39e.js?ver=4.0.1"></script>
-	<script id="gforms_recaptcha_recaptcha-js-extra">
-		var gforms_recaptcha_recaptcha_strings = { "nonce": "a2a99ae49e", "disconnect": "Disconnecting", "change_connection_type": "Resetting", "spinner": "https://bananablossomsalads.com/wp-content/plugins/gravityforms/images/spinner.svg", "connection_type": "classic", "disable_badge": "", "change_connection_type_title": "Change Connection Type", "change_connection_type_message": "Changing the connection type will delete your current settings.  Do you want to proceed?", "disconnect_title": "Disconnect", "disconnect_message": "Disconnecting from reCAPTCHA will delete your current settings.  Do you want to proceed?", "site_key": "6LfyoC0nAAAAAMHI4bzac_UWmWRPr5DBbxiyOd9w" };
-		//# sourceURL=gforms_recaptcha_recaptcha-js-extra
-	</script>
-	<script data-wp-strategy="defer" defer id="gforms_recaptcha_recaptcha-js"
-		src="https://www.google.com/recaptcha/api.js?render=6LfyoC0nAAAAAMHI4bzac_UWmWRPr5DBbxiyOd9w&amp;ver=2.2.2"></script>
-	<script data-wp-strategy="defer" defer id="gforms_recaptcha_frontend-js"
-		src="../wp-content/plugins/gravityformsrecaptcha/js/frontend.min605a.js?ver=2.2.2"></script>
 	<script id="jquery-bind-first-js" defer
 		src="../wp-content/plugins/pixelyoursite/dist/scripts/jquery.bind-first-0.2.3.minf096.js?ver=0.2.3"></script>
 	<script id="js-cookie-pys-js" defer
