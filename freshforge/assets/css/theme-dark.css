@@ -1,0 +1,134 @@
+/* Dark theme overrides for the home page, switched by html[data-theme="dark"].
+ * Palette: Forest #002c1f / Mint #d5edc4 on a near-black green. Salient sets many
+ * colors inline, hence the !important overrides. */
+
+:root {
+  --pullcord-z: 10001;
+  --pullcord-right: 1.5rem;
+  --pullcord-ink: rgba(0, 44, 31, 0.55);
+}
+html[data-theme="dark"] {
+  --pullcord-ink: rgba(213, 237, 196, 0.6);
+  color-scheme: dark;
+}
+
+body, #header-outer, header#top, .container-wrap, #ajax-content-wrap {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Page + header */
+html[data-theme="dark"] body,
+html[data-theme="dark"] #ajax-content-wrap,
+html[data-theme="dark"] .container-wrap,
+html[data-theme="dark"] #header-outer,
+html[data-theme="dark"] header#top {
+  background-color: #0b1410 !important;
+}
+html[data-theme="dark"] #header-outer a,
+html[data-theme="dark"] #header-outer .menu-title-text,
+html[data-theme="dark"] #header-outer i.fa {
+  color: #e6f4da !important;
+}
+html[data-theme="dark"] #logo img { filter: brightness(0) invert(1); }
+html[data-theme="dark"] .lines-button .lines,
+html[data-theme="dark"] .lines-button .lines:before,
+html[data-theme="dark"] .lines-button .lines:after {
+  background-color: #e6f4da !important;
+}
+
+/* Hero (grey squiggle panel) */
+html[data-theme="dark"] #hero .column-bg-overlay { background-color: #14231c !important; }
+html[data-theme="dark"] #hero h3,
+html[data-theme="dark"] #hero h3 span { color: #d5edc4 !important; }
+
+/* Menu marquee section */
+html[data-theme="dark"] #our-menu-wrapper h6,
+html[data-theme="dark"] #reviews-section h6 { color: #d5edc4 !important; }
+html[data-theme="dark"] .menu-marquee-section {
+  background-color: #14231c;
+  background-blend-mode: multiply;
+}
+
+/* Reviews */
+html[data-theme="dark"] #reviews-section { background-color: #0b1410; }
+html[data-theme="dark"] #stagger-testimonials { background: #101c16 !important; }
+html[data-theme="dark"] #stagger-testimonials .st-card:not(.center) {
+  background: #14231c;
+  color: #d5edc4;
+  border-color: #1f3a2e;
+}
+html[data-theme="dark"] #stagger-testimonials .st-card.center {
+  background: #d5edc4;
+  color: #002c1f;
+  border-color: #d5edc4;
+}
+html[data-theme="dark"] #stagger-testimonials .st-card.center h3,
+html[data-theme="dark"] #stagger-testimonials .st-card.center p { color: #002c1f; }
+html[data-theme="dark"] #stagger-testimonials .st-card:not(.center) .st-corner { background: #1f3a2e; }
+html[data-theme="dark"] #stagger-prev,
+html[data-theme="dark"] #stagger-next {
+  background: #14231c !important;
+  color: #d5edc4 !important;
+  border-color: #1f3a2e !important;
+}
+
+/* ---------- Shared: body copy on inner pages ---------- */
+html[data-theme="dark"] .main-content p,
+html[data-theme="dark"] .main-content li,
+html[data-theme="dark"] .main-content h2,
+html[data-theme="dark"] .main-content h3,
+html[data-theme="dark"] .main-content h4 { color: #d5edc4; }
+html[data-theme="dark"] .bb-page-heading h1,
+html[data-theme="dark"] .bb-page-heading h2,
+html[data-theme="dark"] .bb-page-heading p { color: #002c1f; }
+
+/* ---------- About ---------- */
+html[data-theme="dark"] .about-what,
+html[data-theme="dark"] .about-founder,
+html[data-theme="dark"] .about-team { background: #0f1b15; border-color: #1f3a2e; }
+html[data-theme="dark"] .about-section .sec-title { color: #d5edc4; }
+html[data-theme="dark"] .about-section .sec-body { color: #b6cabf; }
+html[data-theme="dark"] .sec-label,
+html[data-theme="dark"] .stat-number,
+html[data-theme="dark"] .team-role,
+html[data-theme="dark"] .founder-quote cite { color: #a3e635; }
+html[data-theme="dark"] .pill { border: 1px solid #1f3a2e; }
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .team-card { background: #14231c; border-color: #1f3a2e; }
+html[data-theme="dark"] .stat-label,
+html[data-theme="dark"] .team-bio { color: #9db8aa; }
+html[data-theme="dark"] .team-name { color: #d5edc4; }
+html[data-theme="dark"] .founder-quote { background: #14231c; color: #d5edc4; border-left-color: #a3e635; }
+html[data-theme="dark"] .team-socials a { background: #1f3a2e; border-color: #1f3a2e; color: #a3e635; }
+
+/* ---------- Menu ---------- */
+html[data-theme="dark"] .menu-page-wrapper { background: #0f1b15; }
+html[data-theme="dark"] .menu-page-title { color: #d5edc4; }
+html[data-theme="dark"] .menu-card { background: #14231c; border-color: #1f3a2e; }
+html[data-theme="dark"] .menu-card h3,
+html[data-theme="dark"] .menu-card .price { color: #d5edc4; }
+html[data-theme="dark"] .menu-card p.description { color: #9db8aa; }
+html[data-theme="dark"] .qty-control { background: #1f3a2e; }
+html[data-theme="dark"] .qty-btn { color: #d5edc4; }
+html[data-theme="dark"] .icon-heart { color: #9db8aa; }
+
+/* ---------- Cart ---------- */
+html[data-theme="dark"] .cart-items-col { background: #14231c; }
+html[data-theme="dark"] .cart-items-col h2,
+html[data-theme="dark"] .item-price-calc,
+html[data-theme="dark"] .item-info h4 { color: #d5edc4; }
+html[data-theme="dark"] .item-info p,
+html[data-theme="dark"] .cart-total-box span,
+html[data-theme="dark"] .empty-cart-msg { color: #9db8aa; }
+html[data-theme="dark"] .cart-item { border-bottom-color: #1f3a2e; }
+html[data-theme="dark"] .cart-total-box { border-top-color: #1f3a2e; }
+
+/* ---------- Subscription ---------- */
+html[data-theme="dark"] .plan-card-front { background: #14231c; border-color: #1f3a2e; }
+html[data-theme="dark"] .plan-card-front :is(h1, h3, li, span)[style*="color: #002c1f"],
+html[data-theme="dark"] .plan-card-front :is(h1, h3, li, span)[style*="color:#002c1f"],
+html[data-theme="dark"] :is(h1, h3, p, span)[style*="color: #002c1f"] { color: #d5edc4 !important; }
+html[data-theme="dark"] [style*="color: #5b7268"],
+html[data-theme="dark"] [style*="color: #3d5a4f"] { color: #9db8aa !important; }
+html[data-theme="dark"] [style*="background: #e6f4da"] { background: #1f3a2e !important; color: #a3e635 !important; }
+html[data-theme="dark"] .plan-icon-wrap { background: #1f3a2e; }

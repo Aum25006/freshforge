@@ -1,0 +1,87 @@
+/*
+ * Fresh Forge design tokens (variables only).
+ * Source of truth: /DESIGN_SYSTEM.md. Change the doc first, then this file.
+ */
+
+:root {
+  /* Brand */
+  --ff-brand-900: #002c1f;
+  --ff-brand-800: #0a3d2c;
+  --ff-brand-700: #17543d;
+  --ff-brand-300: #b6dca0;
+  --ff-brand-200: #d5edc4;
+  --ff-brand-100: #e6f4da;
+  --ff-brand-50: #f3faec;
+
+  /* Accent */
+  --ff-accent-700: #c43e17;
+  --ff-accent-600: #e5532a;
+  --ff-accent-500: #ff6b3d;
+  --ff-accent-100: #ffe3da;
+
+  /* Neutrals */
+  --ff-bg: #ffffff;
+  --ff-surface: #f3faec;
+  --ff-surface-raised: #ffffff;
+  --ff-surface-inverse: #002c1f;
+  --ff-border: #d9e5d0;
+  --ff-border-strong: #aebfa4;
+  --ff-text: #002c1f;
+  --ff-text-secondary: #3d5a4f;
+  --ff-text-muted: #5b7268;
+  --ff-text-inverse: #ffffff;
+  --ff-text-inverse-muted: #d5edc4;
+
+  /* Typography */
+  --ff-font-sans: 'League Spartan', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ff-fs-h1: clamp(2.5rem, 1.9rem + 3vw, 4.5rem);
+  --ff-fs-h2: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+  --ff-fs-h3: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  --ff-fs-h4: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
+  --ff-fs-h5: 1.125rem;
+  --ff-fs-body-lg: 1.25rem;
+  --ff-fs-body: 1.0625rem;
+  --ff-fs-body-sm: 0.9375rem;
+  --ff-fs-caption: 0.8125rem;
+
+  /* Spacing (4px base, 8px grid) */
+  --ff-space-1: 0.25rem;
+  --ff-space-2: 0.5rem;
+  --ff-space-3: 0.75rem;
+  --ff-space-4: 1rem;
+  --ff-space-5: 1.5rem;
+  --ff-space-6: 2rem;
+  --ff-space-7: 3rem;
+  --ff-space-8: 4rem;
+  --ff-space-9: 6rem;
+  --ff-space-10: 8rem;
+
+  /* Section padding */
+  --ff-section-py: var(--ff-space-8);
+  --ff-section-py-sm: var(--ff-space-7);
+  --ff-section-py-lg: var(--ff-space-9);
+
+  /* Radius */
+  --ff-radius-sm: 8px;
+  --ff-radius-md: 12px;
+  --ff-radius-lg: 20px;
+  --ff-radius-full: 9999px;
+
+  /* Elevation */
+  --ff-shadow-xs: 0 1px 2px rgba(0, 44, 31, 0.06);
+  --ff-shadow-sm: 0 2px 8px rgba(0, 44, 31, 0.08);
+  --ff-shadow-md: 0 8px 24px rgba(0, 44, 31, 0.10);
+  --ff-shadow-lg: 0 16px 40px rgba(0, 44, 31, 0.12);
+
+  /* Motion */
+  --ff-ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ff-dur: 200ms;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ff-section-py: var(--ff-space-9);
+    --ff-section-py-sm: var(--ff-space-8);
+    --ff-section-py-lg: var(--ff-space-10);
+  }
+}

@@ -1,0 +1,76 @@
+/*
+ * Inner pages (about, menu, cart, subscription, terms): shared footer, header cart badge
+ * and the terms page body text, mapped onto the design tokens.
+ * Page-specific values live in each page's own style blocks (already tokenized).
+ * Big headings, nav link text and layout are intentionally left untouched.
+ */
+
+/* Header cart badge */
+:where(body) #header-cart-badge {
+  background: var(--ff-accent-500) !important;
+  color: var(--ff-brand-900) !important;
+  font-size: var(--ff-fs-caption) !important;
+  font-weight: 700 !important;
+}
+
+/* Subscription plan buttons: Salient forces pill shape and a system font on <button> */
+:where(body) .plan-card-wrapper button {
+  font-family: var(--ff-font-sans) !important;
+  border-radius: var(--ff-radius-md) !important;
+}
+
+/* ---------- Footer (shared global section) ---------- */
+:where(body) #bb-footer {
+  padding-top: var(--ff-section-py-sm) !important;
+  padding-bottom: var(--ff-section-py-sm) !important;
+}
+:where(body) #bb-footer h3 {
+  font-family: var(--ff-font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+  color: var(--ff-brand-200) !important;
+}
+:where(body) #bb-footer .menu-large a {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-body) !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--ff-brand-200) !important;
+}
+:where(body) #bb-footer .menu-small li,
+:where(body) #bb-footer .menu-small a {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-body-sm) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  margin-bottom: var(--ff-space-2) !important;
+  color: var(--ff-brand-200) !important;
+}
+:where(body) #bb-footer .nectar-responsive-text,
+:where(body) #bb-footer .nectar-responsive-text p {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-body-sm) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  color: var(--ff-brand-200) !important;
+}
+:where(body) #bb-footer .divider-border {
+  margin-top: var(--ff-space-6) !important;
+  margin-bottom: var(--ff-space-6) !important;
+}
+
+/* ---------- Terms page body text ---------- */
+:where(body.page-id-1395) .main-content :is(p, li) {
+  font-family: var(--ff-font-sans);
+  font-size: var(--ff-fs-body);
+  line-height: 1.6;
+  color: var(--ff-text-secondary);
+}
+:where(body.page-id-1395) .main-content :is(p, li) strong {
+  font-weight: 700;
+  color: var(--ff-text);
+}
+:where(body.page-id-1395) .main-content :is(ul, ol) li + li { margin-top: var(--ff-space-2); }
