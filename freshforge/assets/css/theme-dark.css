@@ -120,8 +120,19 @@ html[data-theme="dark"] .item-info h4 { color: #d5edc4; }
 html[data-theme="dark"] .item-info p,
 html[data-theme="dark"] .cart-total-box span,
 html[data-theme="dark"] .empty-cart-msg { color: #9db8aa; }
-html[data-theme="dark"] .cart-item { border-bottom-color: #1f3a2e; }
+html[data-theme="dark"] .cart-item { border-bottom-color: #1f3a2e !important; }
 html[data-theme="dark"] .cart-total-box { border-top-color: #1f3a2e; }
+/* Cart rows are built by script with inline colors, so these need !important */
+html[data-theme="dark"] .cart-item .item-info h4 { color: #d5edc4 !important; }
+html[data-theme="dark"] .cart-item .item-info p { color: #9db8aa !important; }
+html[data-theme="dark"] .cart-item .item-price-calc { color: #d5edc4 !important; }
+html[data-theme="dark"] .cart-item .qty-control { background: #1f3a2e !important; }
+html[data-theme="dark"] .cart-item .qty-control span,
+html[data-theme="dark"] .cart-item .cart-qty-btn { color: #d5edc4 !important; }
+html[data-theme="dark"] .cart-item .remove-btn { color: #ff8a8a !important; }
+html[data-theme="dark"] .cart-item img { box-shadow: 0 0 0 2px #1f3a2e !important; }
+html[data-theme="dark"] .cart-total-box .total-price { color: #d5edc4; }
+html[data-theme="dark"] .empty-cart-msg a { color: #b6dca0 !important; }
 
 /* ---------- Subscription ---------- */
 html[data-theme="dark"] .plan-card-front { background: #14231c; border-color: #1f3a2e; }
