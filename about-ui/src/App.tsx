@@ -3,7 +3,6 @@ import { AboutUs } from "@/components/sections/AboutUs";
 import { Founder } from "@/components/sections/Founder";
 import { WhyChoose } from "@/components/sections/WhyChoose";
 import { Team } from "@/components/sections/Team";
-import { Customers } from "@/components/sections/Customers";
 import { btnAccent, btnOutline } from "@/components/common";
 
 export default function App() {
@@ -15,7 +14,6 @@ export default function App() {
       <Founder />
       <WhyChoose />
       <Team />
-      <Customers />
 
       {/* CTA: a light band with a clear edge so it never melts into the dark footer below */}
       <section className="border-b border-line bg-mint">

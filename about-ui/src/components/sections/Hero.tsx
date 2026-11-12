@@ -1,16 +1,9 @@
 "use client";
 // Hero in the reference layout: headline + buttons on the left; on the right a big curved shape with the
-// bowl on it and small round dishes. The 3D vegetables float over the whole hero and can be dragged.
+// bowl on it and small round dishes.
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { VeggieField } from "@/components/Veggies";
-import { HERO_BOWL, IMG, btnAccent, btnOutline } from "@/components/common";
-
-const Dish = ({ src, className }: { src: string; className: string }) => (
-  <div className={`absolute overflow-hidden rounded-full bg-forest ring-4 ring-white shadow-md ${className}`}>
-    <img src={IMG + src} alt="" className="h-full w-full scale-[1.45] object-cover" loading="lazy" />
-  </div>
-);
+import { HERO_BOWL, btnAccent, btnOutline } from "@/components/common";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -82,14 +75,8 @@ export function Hero() {
               style={reduce ? undefined : { x: px, y: py, rotate: rot }}
             />
           </motion.div>
-          <Dish src="1.png" className="right-0 top-0 z-10 h-[96px] w-[96px] md:-right-4 md:top-4 md:h-[128px] md:w-[128px]" />
-          <Dish src="2.png" className="bottom-12 right-3 z-10 h-[64px] w-[64px] md:-right-8 md:bottom-24 md:h-[96px] md:w-[96px]" />
-          <Dish src="3.png" className="bottom-0 left-4 z-10 hidden h-[64px] w-[64px] md:block" />
         </div>
       </div>
-
-      {/* Floating, draggable 3D vegetables over the whole hero */}
-      <VeggieField />
     </section>
   );
 }
