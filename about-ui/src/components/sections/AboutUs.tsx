@@ -1,17 +1,10 @@
 "use client";
 // "About Us": a bowl on a round plate with a shape behind it on the left, the text and a button on the right.
 import { motion, useReducedMotion } from "motion/react";
-import { IMG, btnOutline } from "@/components/common";
-import { IconArrowDown } from "@tabler/icons-react";
+import { IMG } from "@/components/common";
 
 export function AboutUs() {
   const reduce = useReducedMotion();
-  const go = (e: React.MouseEvent) => {
-    const t = document.getElementById("founder");
-    if (!t) return;
-    e.preventDefault();
-    t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-  };
   return (
     <section className="bg-white">
       <div className="mx-auto grid max-w-page items-center gap-12 px-4 py-16 md:grid-cols-2 md:px-6 md:py-24 lg:px-8">
@@ -44,9 +37,6 @@ export function AboutUs() {
             part: sourcing premium ingredients, building nutritionally balanced recipes, and delivering them fresh.
             All you have to do is enjoy.
           </p>
-          <a href="#founder" onClick={go} className={`${btnOutline} mt-8`}>
-            Meet the founder <IconArrowDown className="h-5 w-5" aria-hidden="true" />
-          </a>
         </div>
       </div>
     </section>

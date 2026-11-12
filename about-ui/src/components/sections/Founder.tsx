@@ -2,7 +2,7 @@
 // Founder card in the reference style: a framed portrait on a coloured circle on the left,
 // name, role and an italic quote on the right.
 import { motion, useReducedMotion } from "motion/react";
-import { IMG, Title, btnAccent } from "@/components/common";
+import { IMG, Title } from "@/components/common";
 
 export function Founder() {
   const reduce = useReducedMotion();
@@ -40,9 +40,6 @@ export function Founder() {
               With a passion for nutrition and an obsession for quality, Aayush took the idea of a daily healthy bowl
               subscription and brought it to life.
             </p>
-            <a href="../subscription/index.html" className={`${btnAccent} mt-8`}>
-              Start a subscription
-            </a>
           </div>
         </motion.div>
       </div>
