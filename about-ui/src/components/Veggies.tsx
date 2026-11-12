@@ -25,9 +25,7 @@ type Item = {
 
 const ITEMS: Item[] = [
   { name: "broccoli-top", x: 5, y: 15, s: 132, depth: 0.9, dur: 5.2, delay: 0, rot: -10 },
-  { name: "broccoli-blur-a", x: 93, y: 12, s: 150, depth: 0.4, dur: 6.8, delay: 0.6, rot: 0 },
   { name: "broccoli-left", x: 48, y: 52, s: 118, depth: 1, dur: 5.8, delay: 0.3, rot: 8 },
-  { name: "broccoli-blur-b", x: 96, y: 62, s: 170, depth: 0.5, dur: 7.0, delay: 0.9, rot: 0 },
   { name: "broccoli-right", x: 77, y: 91, s: 124, depth: 0.7, dur: 6.1, delay: 0.2, rot: -6 },
   { name: "broccoli-bottom", x: 8, y: 89, s: 132, depth: 0.8, dur: 5.5, delay: 1.2, rot: 12 },
   { name: "broccoli-left", x: 30, y: 92, s: 96, depth: 0.45, dur: 6.6, delay: 0.4, rot: 20, flip: true },
