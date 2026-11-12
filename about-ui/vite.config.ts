@@ -9,8 +9,7 @@ export default defineConfig({
   resolve: { alias: { "@": path.resolve(__dirname, "src") } },
   define: { "process.env.NODE_ENV": JSON.stringify("production") },
   build: {
-    // New design builds to assets/about-next so the LIVE About page (assets/about) is never touched until approved.
-    outDir: path.resolve(__dirname, process.env.ABOUT_OUT ?? "../freshforge/assets/about-next"),
+    outDir: path.resolve(__dirname, process.env.ABOUT_OUT ?? "../freshforge/assets/about"),
     emptyOutDir: true,
     cssCodeSplit: false,
     lib: {

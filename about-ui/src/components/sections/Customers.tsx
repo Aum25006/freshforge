@@ -27,7 +27,7 @@ export function Customers() {
   const cur = items[a];
 
   return (
-    <section className="bg-white">
+    <section className="bg-mint-50">
       <div className="mx-auto max-w-page px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <Title lead="Customers" accent="Say" />
 

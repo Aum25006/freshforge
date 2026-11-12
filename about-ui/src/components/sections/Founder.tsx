@@ -7,7 +7,7 @@ import { IMG, Title } from "@/components/common";
 export function Founder() {
   const reduce = useReducedMotion();
   return (
-    <section id="founder" className="scroll-mt-24 bg-mint-50">
+    <section id="founder" className="scroll-mt-24 bg-white">
       <div className="mx-auto max-w-page px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <Title lead="Meet the" accent="founder" />
         <motion.div
@@ -15,7 +15,7 @@ export function Founder() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -15% 0px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mt-12 grid items-center gap-12 rounded-lg bg-white p-6 shadow-md md:grid-cols-[20rem_1fr] md:p-12"
+          className="mt-12 grid items-center gap-12 rounded-lg bg-mint-100 p-6 shadow-sm md:grid-cols-[20rem_1fr] md:p-12"
         >
           {/* portrait: ember circle behind, forest frame offset, photo on top */}
           <div className="relative mx-auto w-full max-w-[20rem] pb-4 pl-4">

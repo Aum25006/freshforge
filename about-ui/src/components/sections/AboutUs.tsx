@@ -6,7 +6,7 @@ import { IMG } from "@/components/common";
 export function AboutUs() {
   const reduce = useReducedMotion();
   return (
-    <section className="bg-white">
+    <section className="bg-mint-50">
       <div className="mx-auto grid max-w-page items-center gap-12 px-4 py-16 md:grid-cols-2 md:px-6 md:py-24 lg:px-8">
         <motion.div
           initial={reduce ? false : { opacity: 0, x: -32 }}

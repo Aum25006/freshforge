@@ -35,7 +35,7 @@ const team = [
 export function Team() {
   const reduce = useReducedMotion();
   return (
-    <section className="bg-mint-50">
+    <section className="bg-white">
       <div className="mx-auto max-w-page px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <Title lead="Meet our" accent="team" />
         <span aria-hidden="true" className="mx-auto mt-4 block h-[4px] w-12 rounded-full bg-ember" />
