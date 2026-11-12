@@ -59,7 +59,6 @@ export function Hero() {
               See the menu
             </a>
           </div>
-          <p className="mt-6 text-caption text-ink-muted">Tip: grab a vegetable and drop it anywhere. It floats where you leave it.</p>
         </div>
 
         {/* bowl on the shape (mobile gets a rounded mint panel instead of the big shape) */}

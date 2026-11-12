@@ -2,7 +2,7 @@ import React from "react";
 
 // Paths are relative to the page (/freshforge/about/ or /freshforge/about-preview/), so ../ is /freshforge/.
 export const IMG = "../img/";
-export const HERO_BOWL = IMG + "ChatGPT%20Image%20Jun%2029,%202026,%2012_12_24%20AM.png";
+export const HERO_BOWL = IMG + "about-bowl.webp";
 
 // Buttons (DESIGN_SYSTEM.md): 44px high, 12px radius, 600 weight, 17px text.
 export const btn =
