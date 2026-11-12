@@ -7,7 +7,7 @@ import { IconArrowDown } from "@tabler/icons-react";
 export function AboutUs() {
   const reduce = useReducedMotion();
   const go = (e: React.MouseEvent) => {
-    const t = document.getElementById("story");
+    const t = document.getElementById("founder");
     if (!t) return;
     e.preventDefault();
     t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
@@ -44,8 +44,8 @@ export function AboutUs() {
             part: sourcing premium ingredients, building nutritionally balanced recipes, and delivering them fresh.
             All you have to do is enjoy.
           </p>
-          <a href="#story" onClick={go} className={`${btnOutline} mt-8`}>
-            Read our story <IconArrowDown className="h-5 w-5" aria-hidden="true" />
+          <a href="#founder" onClick={go} className={`${btnOutline} mt-8`}>
+            Meet the founder <IconArrowDown className="h-5 w-5" aria-hidden="true" />
           </a>
         </div>
       </div>

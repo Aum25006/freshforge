@@ -3,10 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* The host theme sets overflow:hidden on <body>, which breaks position:sticky (the pinned story).
-   This stylesheet is loaded only on the About page. */
-html body { overflow-x: clip !important; overflow-y: visible !important; }
-
 /* A tiny scoped reset so the host theme's (Salient) heading/paragraph/list styles do not leak in. */
 #about-root {
   font-family: "League Spartan", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
