@@ -4,7 +4,7 @@
 //  - parallax: they shift by "depth" as the mouse moves (near ones move more)
 //  - the cursor gently pushes nearby ones away
 //  - grab one and drop it anywhere: it STAYS there (no snap back) and keeps floating from that spot
-// Images: Microsoft Fluent UI Emoji, 3D set (MIT license), in /freshforge/img/veggies/.
+// Images: real broccoli photo (supplied by the site owner), cut into separate transparent pieces in /freshforge/img/veggies/ (broccoli-*.webp).
 // Static (no motion, no dragging) for people who set "reduce motion".
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
@@ -20,19 +20,18 @@ type Item = {
   dur: number;
   delay: number;
   rot: number; // resting tilt in degrees
+  flip?: boolean; // mirror the picture to get a second pose from the same photo
 };
 
 const ITEMS: Item[] = [
-  { name: "tomato", x: 5, y: 9, s: 88, depth: 0.9, dur: 5.2, delay: 0, rot: -12 },
-  { name: "leafy_green", x: 44, y: 7, s: 100, depth: 0.6, dur: 6.4, delay: 0.6, rot: 18 },
-  { name: "avocado", x: 92, y: 12, s: 96, depth: 0.7, dur: 6.8, delay: 0.9, rot: 10 },
-  { name: "carrot", x: 49, y: 50, s: 84, depth: 1, dur: 5.8, delay: 0.3, rot: -25 },
-  { name: "ear_of_corn", x: 94, y: 56, s: 100, depth: 0.85, dur: 6.1, delay: 0.2, rot: 20 },
-  { name: "broccoli", x: 76, y: 90, s: 100, depth: 0.5, dur: 7.0, delay: 1.2, rot: -8 },
-  { name: "hot_pepper", x: 7, y: 90, s: 80, depth: 0.8, dur: 5.5, delay: 1.5, rot: 30 },
-  { name: "bell_pepper", x: 28, y: 91, s: 92, depth: 0.45, dur: 6.6, delay: 0.4, rot: -15 },
-  { name: "cucumber", x: 54, y: 91, s: 88, depth: 0.65, dur: 5.9, delay: 0.8, rot: 35 },
-  { name: "onion", x: 68, y: 7, s: 72, depth: 0.35, dur: 6.3, delay: 1.1, rot: 0 },
+  { name: "broccoli-top", x: 5, y: 15, s: 132, depth: 0.9, dur: 5.2, delay: 0, rot: -10 },
+  { name: "broccoli-blur-a", x: 93, y: 12, s: 150, depth: 0.4, dur: 6.8, delay: 0.6, rot: 0 },
+  { name: "broccoli-left", x: 48, y: 52, s: 118, depth: 1, dur: 5.8, delay: 0.3, rot: 8 },
+  { name: "broccoli-blur-b", x: 96, y: 62, s: 170, depth: 0.5, dur: 7.0, delay: 0.9, rot: 0 },
+  { name: "broccoli-right", x: 77, y: 91, s: 124, depth: 0.7, dur: 6.1, delay: 0.2, rot: -6 },
+  { name: "broccoli-bottom", x: 8, y: 89, s: 132, depth: 0.8, dur: 5.5, delay: 1.2, rot: 12 },
+  { name: "broccoli-left", x: 30, y: 92, s: 96, depth: 0.45, dur: 6.6, delay: 0.4, rot: 20, flip: true },
+  { name: "broccoli-top", x: 62, y: 8, s: 100, depth: 0.55, dur: 6.3, delay: 1.1, rot: 15, flip: true },
 ];
 
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
@@ -115,17 +114,17 @@ function Veggie({
             x: dx,
             y: dy,
             cursor: reduce ? "default" : "grab",
-            filter: "drop-shadow(0 12px 12px rgba(0,44,31,0.45))",
+            filter: "drop-shadow(0 12px 14px rgba(0,44,31,0.22))",
             touchAction: "none",
           }}
         >
           <img
-            src={`${DIR}${item.name}.png`}
+            src={`${DIR}${item.name}.webp`}
             alt=""
-            width={256}
-            height={256}
+            width={480}
+            height={480}
             draggable={false}
-            className="h-full w-full select-none object-contain pointer-events-none"
+            className={`h-full w-full select-none object-contain pointer-events-none ${item.flip ? "-scale-x-100" : ""}`}
           />
         </motion.div>
       </motion.div>
