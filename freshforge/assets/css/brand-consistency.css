@@ -951,3 +951,11 @@ body.ff-page-terms #fws_6a2786f6a6241 .nectar-split-heading { justify-content: c
     margin-right: auto !important;
   }
 }
+
+/* About (Aum's React page): on phones the hero and the "About us" block stack, so their titles and text are centred like every other page.
+   Laptop layout is left as designed. */
+@media (max-width: 767px) {
+  html body.ff-page-about #about-root :is(h1, h2, p) { text-align: center !important; }
+  html body.ff-page-about #about-root :is(p.flex, .flex-wrap) { justify-content: center !important; }
+  html body.ff-page-about #about-root :is(h2, p) { margin-left: auto !important; margin-right: auto !important; }
+}

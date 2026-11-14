@@ -2776,9 +2776,6 @@
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/inner.css">
 <link rel="stylesheet" href="../assets/css/brand-consistency.css">
-<script>try{var t=localStorage.getItem("ff-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pullcord@0.1.0/dist/pullcord.css">
-<link rel="stylesheet" href="../assets/css/theme-dark.css">
 </head>
 
 <body
@@ -3942,7 +3939,7 @@
                     total += itemTotal;
                     
                     // Fallback image in case an old item was saved without an image
-                    const imgSrc = item.image ? item.image : '../5.png';
+                    const imgSrc = item.image ? item.image : '../img/5.png';
 
                     const itemEl = document.createElement('div');
                     itemEl.className = 'cart-item';
@@ -3954,7 +3951,7 @@
 
                     itemEl.innerHTML = `
                         <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
-                            <img src="${imgSrc}" alt="${item.name}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            <img src="${imgSrc}" alt="${item.name}" style="width: 70px; height: 70px; object-fit: contain; padding: 8px; box-sizing: border-box; border-radius: 50%; background: #002c1f; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                             <div class="item-info">
                                 <h4 style="margin: 0 0 5px 0; font-size: 20px; color: #111;">${item.name}</h4>
                                 <p style="margin: 0; color: #666; font-size: 14px;">${item.price} each</p>
@@ -4064,7 +4061,7 @@
             });
         });
     </script>
-<script type="module" src="../assets/js/theme-toggle.js"></script>
+
 </body>
 
 <!-- Mirrored from bananablossomsalads.com/menu/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jun 2026 03:24:14 GMT -->
