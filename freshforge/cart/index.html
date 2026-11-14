@@ -15,7 +15,7 @@
 	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
 	<!-- This site is optimized with the Yoast SEO plugin v27.7 - https://yoast.com/product/yoast-seo-wordpress/ -->
-	<title>Cart</title>
+	<title>Cart - Fresh Forge</title>
 	<link crossorigin data-rocket-preconnect href="../www.googletagmanager.com/index.html" rel="preconnect">
 	<link crossorigin data-rocket-preconnect href="https://connect.facebook.net/" rel="preconnect">
 	<link crossorigin data-rocket-preconnect href="../www.gstatic.com/index.html" rel="preconnect">
@@ -2775,13 +2775,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <link rel="stylesheet" href="../assets/css/inner.css">
+<link rel="stylesheet" href="../assets/css/brand-consistency.css">
 <script>try{var t=localStorage.getItem("ff-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pullcord@0.1.0/dist/pullcord.css">
 <link rel="stylesheet" href="../assets/css/theme-dark.css">
 </head>
 
 <body
-	class="wp-singular page-template-default page page-id-143 wp-theme-salient wp-child-theme-bananab material wpb-js-composer js-comp-ver-8.4.2 vc_responsive"
+	class="ff-page-cart wp-singular page-template-default page page-id-143 wp-theme-salient wp-child-theme-bananab material wpb-js-composer js-comp-ver-8.4.2 vc_responsive"
 	data-footer-reveal="false" data-footer-reveal-shadow="none" data-header-format="centered-logo-between-menu-alt"
 	data-body-border="off" data-boxed-style="" data-header-breakpoint="1000" data-dropdown-style="minimal"
 	data-cae="easeOutQuart" data-cad="1400" data-megamenu-width="contained" data-aie="none" data-ls="fancybox"
@@ -3168,7 +3169,7 @@
         
         <!-- Left Column: Order Summary -->
         <div class="cart-items-col">
-            <h2>Your Order</h2>
+            <h1>Your Order</h1>
             <div id="cart-items-container">
                 <!-- Items will be injected here via JavaScript -->
             </div>
@@ -3490,8 +3491,7 @@
 																		style="margin-right: 8px; ">
 																		<div
 																			class="nectar_icon icon_color_custom_d5edc4 ">
-																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr"
-																				target="_blank"></a><i
+																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr" target="_blank" rel="noopener" aria-label="Fresh Forge on Facebook"></a><i
 																				style="font-size: 12px; line-height: 18px; height: 18px; width: 18px;"
 																				class="fa fa-facebook"></i></div>
 																	</div>
@@ -3501,8 +3501,7 @@
 																		style="margin-right: 8px; ">
 																		<div
 																			class="nectar_icon icon_color_custom_d5edc4 ">
-																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr"
-																				target="_blank"></a><i
+																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr" target="_blank" rel="noopener" aria-label="Fresh Forge on Instagram"></a><i
 																				style="font-size: 12px; line-height: 18px; height: 18px; width: 18px;"
 																				class="fa fa-instagram"></i></div>
 																	</div>
@@ -3959,7 +3958,7 @@
                             <div class="item-info">
                                 <h4 style="margin: 0 0 5px 0; font-size: 20px; color: #111;">${item.name}</h4>
                                 <p style="margin: 0; color: #666; font-size: 14px;">${item.price} each</p>
-                                <button type="button" class="remove-btn" data-index="${index}" style="background: none; border: none; color: #e11d48; cursor: pointer; font-size: 13px; margin-top: 5px; text-decoration: underline; padding: 0;">Remove</button>
+                                <button type="button" class="remove-btn" data-index="${index}" style="background: none; border: none; color: var(--ff-error); cursor: pointer; font-size: 13px; margin-top: 5px; text-decoration: underline; padding: 0;">Remove</button>
                             </div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 20px;">

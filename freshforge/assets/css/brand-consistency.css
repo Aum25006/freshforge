@@ -1,0 +1,953 @@
+/*
+ * Brand consistency layer: applies design-rules/BRAND_RULES.md to every page.
+ * Loaded after tokens.css and inner.css (and before theme-dark.css), so it only uses var(--ff-*) tokens.
+ * Each page's <body> carries ff-page-{home|about|menu|subscription|cart|terms}.
+ * The home hero wordmark ("welcome") is the one display exception and is not touched here.
+ * Salient and the pages' inline styles use !important / style="", so overrides need !important too.
+ */
+
+/* ---------- Every page: no sideways scroll ---------- */
+body[class*="ff-page-"] #ajax-content-wrap { overflow-x: clip; }
+body[class*="ff-page-"] img { max-width: 100%; }
+
+/* ---------- Inner pages only (home keeps its own look) ---------- */
+body[class*="ff-page-"]:not(.ff-page-home) {
+  --ff-h1: var(--ff-fs-h1);
+}
+
+/* Page title: H1 */
+body[class*="ff-page-"]:not(.ff-page-home) h1,
+body[class*="ff-page-"]:not(.ff-page-home) h1 * {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-h1) !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: none !important;
+}
+body.ff-page-menu h1,
+body.ff-page-menu h1 *,
+body.ff-page-terms h1,
+body.ff-page-terms h1 * { color: var(--ff-text) !important; }
+body.ff-page-subscription h1 { margin: 0 0 var(--ff-space-4) !important; }
+
+/* Utility page title (cart) sits inside a card, so it uses the H2 size */
+html body.ff-page-cart.ff-page-cart h1,
+html body.ff-page-cart.ff-page-cart h1 * {
+  font-size: var(--ff-fs-h2) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--ff-text) !important;
+}
+
+/* Menu / Terms hero title: Salient's split-heading mask clipped the line at the new size */
+body.ff-page-menu .nectar-split-heading,
+body.ff-page-terms .nectar-split-heading { overflow: visible !important; }
+body.ff-page-menu .nectar-split-heading .heading-line,
+body.ff-page-terms .nectar-split-heading .heading-line {
+  overflow: visible !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+body.ff-page-menu .nectar-split-heading h1 > span,
+body.ff-page-terms .nectar-split-heading h1 > span {
+  overflow: visible !important;
+}
+/* Section titles: H2 (same as the home page's section headings) */
+body.ff-page-about .sec-title,
+body.ff-page-menu .menu-page-title,
+body.ff-page-menu #fws_6a270e4fb03a1 h3 {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-h2) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.015em !important;
+  text-transform: none !important;
+}
+
+/* Sub-section titles: H3 */
+body.ff-page-menu .menu-card h3,
+body.ff-page-subscription .plan-name,
+body.ff-page-cart .checkout-col h2,
+body.ff-page-terms h3:not(#fws_6a2786f6a6241 h3, #bb-footer h3, .pum h3) {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-h3) !important;
+  font-weight: 600 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+}
+body.ff-page-terms h3[style]:not(#bb-footer h3) { font-weight: 600 !important; }
+
+/* Card titles, prices, stats and names: H4 */
+body.ff-page-menu .price,
+body.ff-page-about .team-name,
+body.ff-page-cart .item-info h4 {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-h4) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+}
+body.ff-page-about .stat-number {
+  font-size: var(--ff-fs-h3) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+}
+body.ff-page-about .team-avatar { font-weight: 700 !important; }
+
+/* Eyebrow labels: Caption, uppercase allowed */
+body.ff-page-about :is(.hero-label, .sec-label, .founder-badge, .team-role) {
+  font-size: var(--ff-fs-caption) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Subscription tagline: one typeface only (no script font) */
+body.ff-page-subscription div[style*="Caveat"] {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-h4) !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+}
+
+/* Weights: only 400 / 500 / 600 / 700 exist */
+body[class*="ff-page-"] :is([style*="font-weight: 800"], [style*="font-weight:800"], [style*="font-weight: 900"], [style*="font-weight:900"]) {
+  font-weight: 700 !important;
+}
+
+/* No in-between sizes: 13.5 and 14 round to Small (15) */
+body[class*="ff-page-"] :is([style*="font-size: 13.5px"], [style*="font-size: 14px"]) {
+  font-size: var(--ff-fs-body-sm) !important;
+}
+
+/* ---------- Body text: 17 / 1.6 ---------- */
+body[class*="ff-page-"]:not(.ff-page-home) :is(p, li):not(#bb-footer *, #header-outer *, #slide-out-widget-area *, .pum *) {
+  font-family: var(--ff-font-sans);
+  font-size: var(--ff-fs-body);
+  line-height: 1.6;
+}
+body.ff-page-about .about-section p,
+body.ff-page-about .about-hero p { max-width: 65ch; }
+
+/* ---------- Buttons: see "Button system" at the end of this file ---------- */
+
+/* Small round controls: 44px touch target */
+body.ff-page-menu :is(.qty-btn, .icon-btn),
+body.ff-page-cart :is(.cart-qty-btn, .remove-btn) {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: var(--ff-radius-full) !important;
+}
+
+/* Form fields in the cart */
+body.ff-page-cart .checkout-col :is(input, textarea, select) {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-body) !important;
+  min-height: 48px;
+  padding: var(--ff-space-3) var(--ff-space-4) !important;
+  border-radius: var(--ff-radius-sm) !important;
+}
+body.ff-page-cart .form-group label {
+  font-size: var(--ff-fs-body-sm) !important;
+  font-weight: 600 !important;
+  margin-bottom: var(--ff-space-2) !important;
+}
+
+/* ---------- Radius: 8 / 12 / 20 / full ---------- */
+body[class*="ff-page-"] [style*="border-radius: 10px"] { border-radius: var(--ff-radius-md) !important; }
+body.ff-page-subscription .plan-card-wrapper,
+body.ff-page-about :is(.stat-card, .team-card, .founder-card) { border-radius: var(--ff-radius-lg) !important; }
+
+/* ---------- Icons: 20px in content, 24px in header and footer ---------- */
+body[class*="ff-page-"]:not(.ff-page-home) i.fa {
+  font-size: var(--ff-icon-md, 20px) !important;
+  width: var(--ff-icon-md, 20px);
+  height: var(--ff-icon-md, 20px);
+  line-height: 1 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+body[class*="ff-page-"] #header-outer i.fa-shopping-cart,
+body[class*="ff-page-"] #bb-footer i.fa {
+  font-size: var(--ff-icon-lg, 24px) !important;
+  line-height: 1 !important;
+}
+
+/* ---------- Section rhythm: 64 mobile / 96 desktop ---------- */
+body.ff-page-about .about-section {
+  padding-top: var(--ff-section-py) !important;
+  padding-bottom: var(--ff-section-py) !important;
+}
+body.ff-page-terms #fws_6a2786f6a67cf {
+  padding-top: var(--ff-section-py) !important;
+  padding-bottom: var(--ff-section-py) !important;
+}
+
+/* ---------- Phones ---------- */
+body.ff-page-menu .menu-card-img { max-width: 100%; height: auto; }
+body[class*="ff-page-"] a:where(:not([class*="nectar"])):where([class]) { min-height: 0; }
+
+/* Terms hero label: eyebrow (Caption), readable on mint */
+body.ff-page-terms #fws_6a2786f6a6241 h3 {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-caption) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--ff-brand-700) !important;
+}
+
+/* Icon links: 44px touch target */
+body[class*="ff-page-"] #bb-footer a:has(> i.fa),
+body[class*="ff-page-"] #header-outer a:has(> i.fa-shopping-cart) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* ================= Mobile header (up to 999px: Salient's mobile header) ================= */
+@media (max-width: 999px) {
+  /* "Our Menu" link: Body size, 44px target (the logo link is excluded) */
+  body[class*="ff-page-"] #header-outer .mobile-header .sf-menu a:not(#logo) {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--ff-font-sans) !important;
+    font-size: var(--ff-fs-body) !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    transform: none;
+  }
+
+  /* Hamburger button: 44px forest circle, three equal bars (Lucide "menu" shape) */
+  body[class*="ff-page-"] .slide-out-widget-area-toggle a {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    margin-top: 0;
+    transform: none;
+    border-radius: var(--ff-radius-full);
+    background-color: var(--ff-brand-900);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6h16M4 12h16M4 18h16'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    transition: background-color var(--ff-dur) var(--ff-ease);
+  }
+  body[class*="ff-page-"] .slide-out-widget-area-toggle a:hover { background-color: var(--ff-brand-800); }
+  body[class*="ff-page-"] .slide-out-widget-area-toggle a.open {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E");
+  }
+  body[class*="ff-page-"] .slide-out-widget-area-toggle a::before,
+  body[class*="ff-page-"] .slide-out-widget-area-toggle a > span[aria-hidden] { display: none !important; }
+}
+
+/* ================= Buttons that use Salient's .nectar-button (home) ================= */
+body[class*="ff-page-"] a.nectar-button > span {
+  position: static !important;
+  display: inline !important;
+  padding: 0 !important;
+}
+body[class*="ff-page-"] a.nectar-button i {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: var(--ff-icon-md, 20px) !important;
+  height: var(--ff-icon-md, 20px) !important;
+  margin: 0 !important;
+  font-size: var(--ff-icon-md, 20px) !important;
+  line-height: 1 !important;
+  background: none !important;
+  transform: none !important;
+}
+
+/* ================= Hero sub-headline "Forging Your Health." (home + menu) ================= */
+:is(body.ff-page-home #hero h3, body.ff-page-menu #fws_6a270e4fb03a1 h3) {
+  font-size: clamp(2.5rem, 1.6rem + 2vw, 3.25rem) !important;
+  line-height: 1.1 !important;
+}
+
+/* ================= Tighter vertical rhythm on phones ================= */
+@media (max-width: 767px) {
+  body.ff-page-home #hero .divider-wrap,
+  body.ff-page-home #hero .divider { height: var(--ff-space-6) !important; }
+  body.ff-page-home #rewards-panel {
+    padding-top: var(--ff-section-py) !important;
+    padding-bottom: var(--ff-section-py) !important;
+  }
+  body.ff-page-home .nectar-button { width: auto; max-width: 100%; }
+  body.ff-page-home .vc_col-sm-4.force-phone-text-align-center { justify-content: center !important; }
+}
+
+/* ================= Full-screen mobile menu links: one typeface, sentence case, 44px+ targets ================= */
+body[class*="ff-page-"] #slide-out-widget-area .off-canvas-menu-container a {
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-h3) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+  padding-block: var(--ff-space-2) !important;
+}
+body[class*="ff-page-"] #slide-out-widget-area .off-canvas-menu-container li { margin-bottom: var(--ff-space-1) !important; }
+
+/* "Our Menu" row title on home: H2 */
+body.ff-page-home h6[style*="font-size: 34px"] {
+  font-size: var(--ff-fs-h2) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.015em !important;
+}
+
+/* ================= Social icon buttons ("Follow us on"): icon dead centre, 56px circle ================= */
+body[class*="ff-page-"] a[aria-label^="Follow us on"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 56px !important;
+  height: 56px !important;
+  padding: 0 !important;
+  font-size: var(--ff-icon-lg, 24px) !important;
+  line-height: 1 !important;
+  border-radius: var(--ff-radius-full) !important;
+}
+body[class*="ff-page-"] a[aria-label^="Follow us on"] i.fa {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: var(--ff-icon-lg, 24px) !important;
+  height: var(--ff-icon-lg, 24px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: var(--ff-icon-lg, 24px) !important;
+  line-height: var(--ff-icon-lg, 24px) !important;
+  text-align: center;
+  position: static !important;
+  top: 0 !important;
+}
+
+/* ================= Footer social buttons: 44px circle, 24px icon, dead centre, 12px apart ================= */
+body[class*="ff-page-"] #bb-footer .footer-icons .nectar_icon_wrap {
+  display: inline-block;
+  margin: 0 var(--ff-space-3) 0 0 !important;
+}
+body[class*="ff-page-"] #bb-footer .footer-icons .nectar_icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  border-radius: var(--ff-radius-full) !important;
+}
+body[class*="ff-page-"] #bb-footer .footer-icons .nectar_icon i {
+  position: static !important;
+  top: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: var(--ff-icon-lg, 24px) !important;
+  height: var(--ff-icon-lg, 24px) !important;
+  margin: 0 !important;
+  font-size: var(--ff-icon-lg, 24px) !important;
+  line-height: var(--ff-icon-lg, 24px) !important;
+}
+body[class*="ff-page-"] #bb-footer .footer-icons .nectar_icon a { inset: 0; border-radius: var(--ff-radius-full); }
+body[class*="ff-page-"] #bb-footer .footer-icons .nectar_icon a:focus-visible { outline: 2px solid var(--ff-brand-200); outline-offset: 2px; }
+
+/* ================= Testimonials ("Our Customers Say"): full-bleed like the sections above and below ================= */
+body.ff-page-home #reviews-section {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+body.ff-page-home #reviews-section #stagger-testimonials { width: 100%; }
+
+/* ================= "Our Menu" row on home: title centred, button centred below it ================= */
+body.ff-page-home .ff-menu-head-title,
+body.ff-page-home .ff-menu-head-cta { width: 100%; float: none; text-align: center; }
+body.ff-page-home .ff-menu-head-title h6 { margin: 0 0 var(--ff-space-4) !important; text-align: center; }
+body.ff-page-home .ff-menu-head-cta { margin-bottom: 0; }
+
+/* Salient buttons: text and arrow sit as one centred group (its span carried an offset) */
+html body[class*="ff-page-"] a.nectar-button.has-icon > span,
+html body[class*="ff-page-"] a.nectar-button > span {
+  display: inline-block !important;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  text-align: center;
+}
+html body[class*="ff-page-"] a.nectar-button.has-icon { padding: 0 var(--ff-space-6) !important; }
+
+/* Testimonials meet the next band: no white strip between them */
+body.ff-page-home #reviews-section { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+
+/* =====================================================================================
+   Button system: pill shape, five states, three colour variants.
+   Applies to the legacy buttons (Salient .nectar-button, menu add-to-cart, subscription
+   plan buttons, cart WhatsApp button) and to new buttons written as .ff-btn.
+   Variants: primary (forest, default) | secondary (mint) | accent (ember)
+   States:   default, hover (darker + soft shadow), active (inset ring), focus-visible,
+             disabled, loading ([aria-busy="true"] or .is-loading shows a spinner)
+   ===================================================================================== */
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn) {
+  /* primary is the default variant */
+  --btn-bg: var(--ff-brand-900);
+  --btn-fg: var(--ff-text-inverse);
+  --btn-bg-hover: var(--ff-brand-800);
+  --btn-ring: var(--ff-brand-300);
+  --btn-dis-bg: var(--ff-border);
+  --btn-dis-fg: var(--ff-text-muted);
+  --btn-h: 44px;
+  --btn-px: var(--ff-space-6);
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ff-space-2);
+  box-sizing: border-box;
+  min-height: var(--btn-h) !important;
+  padding: 0 var(--btn-px) !important;
+  font-family: var(--ff-font-sans) !important;
+  font-size: var(--ff-fs-body) !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  text-align: center;
+  text-decoration: none !important;
+  white-space: nowrap;
+  border: 0 !important;
+  border-radius: var(--ff-radius-full) !important;
+  background: var(--btn-bg) !important;
+  color: var(--btn-fg) !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  transition: background-color var(--ff-dur) var(--ff-ease), box-shadow var(--ff-dur) var(--ff-ease), color var(--ff-dur) var(--ff-ease);
+}
+
+/* Variants */
+html body[class*="ff-page-"] :is(.ff-btn--secondary, a.nectar-button:not(.extra-color-1)) {
+  --btn-bg: var(--ff-brand-200);
+  --btn-fg: var(--ff-brand-900);
+  --btn-bg-hover: var(--ff-brand-300);
+  --btn-ring: var(--ff-brand-900);
+  --btn-dis-bg: var(--ff-brand-100);
+}
+html body[class*="ff-page-"] :is(.ff-btn--accent, button.whatsapp-btn) {
+  --btn-bg: var(--ff-accent-500);
+  --btn-fg: var(--ff-brand-900);
+  --btn-bg-hover: var(--ff-accent-600);
+  --btn-ring: var(--ff-brand-900);
+  --btn-dis-bg: var(--ff-accent-100);
+  --btn-dis-fg: var(--ff-accent-700);
+}
+/* Sizes: large (56px) for hero calls to action */
+html body[class*="ff-page-"] :is(.ff-btn--lg, a.nectar-button) {
+  --btn-h: 56px;
+  --btn-px: var(--ff-space-6);
+}
+
+/* Hover: one step darker + soft lift shadow */
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):is(:hover, .is-hover):not(:disabled, [aria-disabled="true"], [aria-busy="true"], .is-loading, :active, .is-active) {
+  background: var(--btn-bg-hover) !important;
+  color: var(--btn-fg) !important;
+  --btn-shadow: var(--ff-shadow-md);
+  box-shadow: var(--ff-shadow-md) !important;
+}
+/* Active (pressed): inset ring, no shadow */
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):is(:active, .is-active):not(:disabled, [aria-disabled="true"]) {
+  background: var(--btn-bg) !important;
+  color: var(--btn-fg) !important;
+  --btn-shadow: inset 0 0 0 2px var(--btn-ring);
+  box-shadow: inset 0 0 0 2px var(--btn-ring) !important;
+}
+/* Keyboard focus */
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):focus-visible {
+  outline: 2px solid var(--ff-brand-900) !important;
+  outline-offset: 2px !important;
+}
+/* Disabled */
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):is(:disabled, [aria-disabled="true"], .is-disabled) {
+  background: var(--btn-dis-bg) !important;
+  color: var(--btn-dis-fg) !important;
+  --btn-shadow: none;
+  box-shadow: none !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Loading: spinner before the label, arrow hidden, clicks ignored */
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):is([aria-busy="true"], .is-loading) {
+  pointer-events: none;
+  cursor: progress;
+}
+html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):is([aria-busy="true"], .is-loading)::before {
+  content: "";
+  display: block !important;
+  position: static !important;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  background: none !important;
+  animation: ff-btn-spin 0.8s linear infinite;
+}
+html body[class*="ff-page-"] a.nectar-button:is([aria-busy="true"], .is-loading) i { display: none !important; }
+@keyframes ff-btn-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  html body[class*="ff-page-"] :is(.ff-btn, a.nectar-button, .add-to-cart-btn, .btn-sub-action, .plan-card-wrapper button, button.whatsapp-btn):is([aria-busy="true"], .is-loading)::before { animation-duration: 2.4s; }
+}
+
+/* Salient paints its own hover overlay on .nectar-button; the system above replaces it */
+html body[class*="ff-page-"] a.nectar-button::before,
+html body[class*="ff-page-"] a.nectar-button::after { display: none !important; }
+html body[class*="ff-page-"] a.nectar-button:is([aria-busy="true"], .is-loading)::before { display: block !important; }
+
+/* ================= "Follow us on": tint above the photo collage so the white heading is readable ================= */
+/* Salient's own overlay sits underneath the photos (z-index -1), so it never showed. */
+body.ff-page-home #fws_6a270e4fc1658 .column-image-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* A long, gently eased 90px fade from the testimonials' mint (#f3faec), same curve as dark mode, so the seam is soft without
+     washing the photos out. The rest is --ff-brand-900 at 55%. */
+  background: rgba(0, 44, 31, 0.55); /* tint only: no fade at the top edge */
+  pointer-events: none;
+}
+body.ff-page-home #fws_6a270e4fc1658 h2 { text-shadow: 0 1px 12px rgba(0, 44, 31, 0.35); }
+
+/* Salient .nectar-button on pages with their own button rules (home.css uses a very specific selector) */
+html body[class*="ff-page-"][class*="ff-page-"] a.nectar-button.nectar-button.nectar-button.nectar-button {
+  border-radius: var(--ff-radius-full) !important;
+  box-shadow: var(--btn-shadow, none) !important;
+}
+
+/* Hover / disabled for .nectar-button must outrank home.css's #id rules */
+html body[class*="ff-page-"] #ajax-content-wrap a.nectar-button:is(:hover, .is-hover):not(:active, .is-active, [aria-disabled="true"], [aria-busy="true"], .is-loading) {
+  background: var(--btn-bg-hover) !important;
+  color: var(--btn-fg) !important;
+  --btn-shadow: var(--ff-shadow-md);
+}
+html body[class*="ff-page-"] #ajax-content-wrap a.nectar-button:is(:hover, .is-hover) i { color: var(--btn-fg) !important; }
+html body[class*="ff-page-"] #ajax-content-wrap a.nectar-button:is([aria-disabled="true"], .is-disabled) {
+  background: var(--btn-dis-bg) !important;
+  color: var(--btn-dis-fg) !important;
+  --btn-shadow: none;
+}
+
+/* Testimonial arrows: 32px of space below them, then the next band */
+body.ff-page-home #stagger-nav { bottom: var(--ff-space-7) !important; }
+
+/* "Follow us on" photo band meets the footer directly (Salient's default 50px row margin left a white strip) */
+body.ff-page-home #fws_6a270e4fc1658 { margin-bottom: 0 !important; }
+
+/* ================= "Follow us on" on phones and tablets: same look as desktop =================
+   Salient's own photo layer collapses to 0x0 below 1000px, which left only a flat grey panel.
+   .ff-follow-grid (added in index.html) paints the collage behind the heading instead; the sides are
+   cropped by background-size: cover. Same 55% forest tint and the same soft 40px edge as desktop. */
+body.ff-page-home .ff-follow-grid { display: none; }
+@media (max-width: 999px) {
+  body.ff-page-home .ff-follow-grid {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: url("../../img/follow-us-bg.jpg") center / cover no-repeat;
+  }
+  body.ff-page-home .ff-follow-grid span { display: none; }
+  body.ff-page-home .ff-follow-grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 44, 31, 0.55); /* tint only: no fade at the top edge */
+    pointer-events: none;
+  }
+  /* the flat overlay would tint twice; the collage carries its own tint */
+  body.ff-page-home #fws_6a270e4fc1658 .column-bg-overlay { opacity: 0 !important; }
+}
+
+/* Video band ("Hi! We're Fresh Forge"): no colour frame behind the rounded video.
+   The animated gradient canvas and the flat forest layer showed at the rounded corners. */
+body.ff-page-home #rewards-panel > .row-bg-wrap,
+body.ff-page-home #rewards-panel canvas.nectar-animated-gradient { display: none !important; }
+
+/* ================= Dark mode: testimonials need three distinct tones (stage, side cards, active card) =================
+   stage #0f1b15  <  side cards #1c3529 with a lighter edge and shadow  <  active card mint */
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials { background: #0f1b15 !important; }
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) {
+  background: #1c3529 !important;
+  color: #e6f4da !important;
+  border-color: #3a6652 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) h3,
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) p { color: #e6f4da !important; }
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) .st-corner { background: #3a6652 !important; }
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center):hover { border-color: var(--ff-brand-300) !important; }
+html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card.center {
+  background: var(--ff-brand-200) !important;
+  border-color: var(--ff-brand-200) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
+}
+html[data-theme="dark"] body.ff-page-home #stagger-prev,
+html[data-theme="dark"] body.ff-page-home #stagger-next {
+  background: #1c3529 !important;
+  color: #e6f4da !important;
+  border: 1px solid #3a6652 !important;
+}
+html[data-theme="dark"] body.ff-page-home #stagger-prev:hover,
+html[data-theme="dark"] body.ff-page-home #stagger-next:hover {
+  background: var(--ff-brand-200) !important;
+  color: var(--ff-brand-900) !important;
+}
+
+/* ================= Footer: edge to edge on every page, whatever the scrollbar width =================
+   Salient sizes the footer's own background layer from the window width, which misses the scrollbar and
+   leaves a few pixels of page colour on both sides. The full-width wrapper carries the colour as well. */
+body[class*="ff-page-"] .nectar-global-section.before-footer,
+html[data-theme="dark"] body[class*="ff-page-"] .nectar-global-section.before-footer { background-color: var(--ff-brand-900) !important; }
+
+/* ================= Dark mode seams ================= */
+/* Bowl strip (dark mode): same band colour, straight edges, no hairline.
+   The strip's texture is a flat light grey (#f2f2f4) multiplied onto #14231c = rgb(19 33 27). At fractional pixel
+   positions the light grey leaked out as a thin white line on the top and bottom edge, so the result colour is used directly. */
+html[data-theme="dark"] body.ff-page-home .menu-marquee-section {
+  background-image: none !important;
+  background-color: rgb(19, 33, 27) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  isolation: isolate;
+}
+/* Texture ("impression") like light mode: the same grain image, inverted so its marks read as faint light streaks on the dark band */
+html[data-theme="dark"] body.ff-page-home .menu-marquee-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("../../55a72b88-004d-4c4a-bda3-8691e1282ac4.png") center / cover no-repeat;
+  filter: invert(1) brightness(5);
+  mix-blend-mode: screen;
+  opacity: 0.14;
+  pointer-events: none;
+}
+html[data-theme="dark"] body.ff-page-home .menu-marquee-section .marquee-content { position: relative; z-index: 2; }
+
+
+/* "Follow us on" band: no hairline and no side gaps */
+/* a 1px overlap closes the subpixel gap that let the darker page colour show as a black line */
+body.ff-page-home #fws_6a270e4fc1658 { margin-top: -1px !important; }
+/* Salient sizes the band from the window width and misses the scrollbar, leaving ~5px at each side; paint it full width instead */
+@media (max-width: 999px) {
+  body.ff-page-home .ff-follow-grid {
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    margin-left: -50vw;
+  }
+}
+
+/* "Follow us on" band at every width: full viewport width (Salient left ~5px at each side when a scrollbar is present) */
+body.ff-page-home #fws_6a270e4fc1658 {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+
+/* Testimonials: clear space between the tilted cards and the arrows.
+   The stage grows by 64px at the bottom; cards are nudged up by half of that so they stay where they were.\n   Result on laptop: about 55px from the cards to the arrows and 48px from the arrows to the photo band. */
+body.ff-page-home #stagger-testimonials {
+  box-sizing: content-box;
+  padding-bottom: var(--ff-space-8);
+}
+body.ff-page-home #stagger-testimonials .st-card { margin-top: calc(var(--ff-space-8) / -2); }
+
+
+/* Phones: the stage is taller than the cards, so it needs less extra space under them to keep the same rhythm
+   (about 55px cards to arrows, 47px arrows to photo band) */
+@media (max-width: 639px) {
+  body.ff-page-home #stagger-testimonials { padding-bottom: var(--ff-space-5); }
+  body.ff-page-home #stagger-testimonials .st-card { margin-top: calc(var(--ff-space-5) / -2); }
+}
+
+/* =====================================================================================
+   Section rhythm: one vertical spacing system for every page, light and dark mode.
+     --ff-sec-y     section padding, top and bottom      64px phone / 96px from 768px
+     --ff-sec-y-lg  hero bands                           96px phone / 128px from 768px
+     space between a section title and its content        48px (--ff-space-7)
+   Between two sections the visible gap is therefore 2 x --ff-sec-y, wherever they sit and whatever
+   their background. Page-specific paddings (px, vh, vw) are replaced by these two values.
+   ===================================================================================== */
+:root {
+  --ff-sec-y: var(--ff-space-8);
+  --ff-sec-y-lg: var(--ff-space-9);
+}
+@media (min-width: 768px) {
+  :root {
+    --ff-sec-y: var(--ff-space-9);
+    --ff-sec-y-lg: var(--ff-space-10);
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --ff-sec-y: var(--ff-space-9);
+    --ff-sec-y-lg: var(--ff-space-10);
+  }
+}
+
+/* ---------- Home ---------- */
+body.ff-page-home #hero .divider-wrap,
+body.ff-page-home #hero .divider { height: var(--ff-sec-y) !important; }
+body.ff-page-home #rewards-panel {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: var(--ff-sec-y) !important;
+}
+body.ff-page-home #our-menu-wrapper {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: 0 !important;
+}
+/* equal space above the title and below the button: 96px each (video band to title, button to bowl strip) */
+body.ff-page-home #our-menu-wrapper .row.ff-menu-head { margin-bottom: var(--ff-sec-y) !important; }
+body.ff-page-home #reviews-section {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: 0 !important;
+}
+/* title block: the same space below the title as above it (96px) */
+body.ff-page-home #reviews-section .container > div { margin-bottom: var(--ff-sec-y) !important; }
+
+/* ---------- Footer (every page) ---------- */
+body[class*="ff-page-"] #bb-footer {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: var(--ff-space-6) !important;
+}
+
+/* ---------- About ---------- */
+body.ff-page-about .about-hero {
+  padding-top: var(--ff-sec-y-lg) !important;
+  padding-bottom: var(--ff-sec-y-lg) !important;
+}
+body.ff-page-about .about-section {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: var(--ff-sec-y) !important;
+}
+
+/* ---------- Menu ---------- */
+body.ff-page-menu .menu-page-wrapper {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: var(--ff-sec-y) !important;
+}
+
+/* ---------- Cart ---------- */
+body.ff-page-cart .cart-wrapper {
+  margin-top: var(--ff-sec-y) !important;
+  margin-bottom: var(--ff-sec-y) !important;
+}
+
+/* ---------- Terms ---------- */
+body.ff-page-terms #fws_6a2786f6a67cf {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: var(--ff-sec-y) !important;
+}
+
+/* ================= Phone header: one compact 64px bar (was ~119px) =================
+   64px = 44px touch target + 10px above and below. Salient added 12px padding and 15px margins around a 65px bar. */
+@media (max-width: 999px) {
+  body[class*="ff-page-"] #header-outer {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: 64px !important;
+  }
+  body[class*="ff-page-"] #header-space { height: 64px !important; }
+  body[class*="ff-page-"] #header-outer header#top {
+    margin: 0 !important;
+    height: 64px !important;
+  }
+  body[class*="ff-page-"] #header-outer header#top > .container,
+  body[class*="ff-page-"] #header-outer header#top .span_9,
+  body[class*="ff-page-"] #header-outer .slide-out-widget-area-toggle { height: 64px !important; }
+}
+
+/* Phone header: logo, "Our Menu" and the menu button share the bar's centre line (32px) */
+@media (max-width: 999px) {
+  html body[class*="ff-page-"] #header-outer a[id="logo"] img { transform: translateY(4px) !important; }
+}
+
+/* ================= Button arrows: drawn to their exact size, so text + arrow are one centred group =================
+   Font Awesome's arrow glyphs sit inside a 20px box with empty space around the visible shape, which made the
+   right edge look wider than the left. The icons below are masks whose box IS the visible shape. */
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .ff-btn) i.fa-angle-right,
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .ff-btn) i.fa-arrow-right {
+  display: inline-block !important;
+  flex: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  background: currentColor !important;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .ff-btn) i.fa-angle-right::before,
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .ff-btn) i.fa-arrow-right::before { content: none !important; }
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .ff-btn) i.fa-angle-right {
+  width: 8px !important;
+  height: 14px !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l6 6-6 6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l6 6-6 6'/%3E%3C/svg%3E");
+}
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .ff-btn) i.fa-arrow-right {
+  width: 14px !important;
+  height: 12px !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 6h12M8 1l5 5-5 5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 6h12M8 1l5 5-5 5'/%3E%3C/svg%3E");
+}
+
+/* Salient adds a 10px bottom margin to every .nectar-button, which made the space below this button 10px bigger than the space above the title */
+body.ff-page-home .ff-menu-head-cta a.nectar-button { margin: 0 !important; }
+
+/* Menu page: "Explore our menu" has the same space below it as above it (96px) */
+body.ff-page-menu .menu-page-wrapper .menu-page-title { margin-bottom: var(--ff-sec-y) !important; }
+
+/* =====================================================================================
+   Equal spacing around title blocks and sections (same rule on every page)
+   - first block under the header and last block above the footer: 96px (--ff-sec-y)
+   - a title block that stands alone: the same space below it as above it
+   - eyebrow label / title directly above the content it introduces: 48px
+   ===================================================================================== */
+
+/* About: "Meet our team" header: 96px below, same as the section padding above it */
+body.ff-page-about .team-header { margin-bottom: var(--ff-sec-y) !important; }
+
+/* Subscription: header to title 96, plan cards to footer 96, eyebrow to cards 48 */
+body.ff-page-subscription .vc_col-sm-12.bg-squiggle {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+body.ff-page-subscription .bg-squiggle > .vc_column-inner {
+  padding-top: var(--ff-sec-y) !important;
+  padding-bottom: var(--ff-sec-y) !important;
+}
+body.ff-page-subscription .sub-hero-banner-centered {
+  padding: 0 var(--ff-space-4) !important;
+  margin-bottom: var(--ff-space-7) !important;
+}
+body.ff-page-subscription #weekly-card ~ *,
+body.ff-page-subscription #weekly-card { margin-bottom: 0; }
+body.ff-page-subscription main.subscription-hero > div:last-child { margin-bottom: 0 !important; }
+body.ff-page-subscription .flip-card:last-child,
+body.ff-page-subscription .plan-card-wrapper:last-child { margin-bottom: 0 !important; }
+body.ff-page-subscription .flip-card { margin-bottom: 0 !important; }
+
+/* Terms: an empty inline-block text column added a 30px blank line above the first title, and Salient's 21px row margin
+   added space above the footer. Both are removed so the text has 96px above and below, like every other page. */
+body.ff-page-terms #fws_6a2786f6a67cf .vc_column-inner > .wpb_wrapper > .wpb_text_column:first-child:empty,
+body.ff-page-terms #fws_6a2786f6a67cf .vc_column-inner > .wpb_wrapper > .wpb_text_column:first-child:not(:has(h1, h2, h3, h4, p, ul, ol, li)) { display: none !important; }
+body.ff-page-terms #fws_6a2786f6a67cf { margin-bottom: 0 !important; }
+
+/* Icons inside buttons: Salient nudges .fa icons up by 2px, which pushed the icon + label group off the vertical centre */
+html body[class*="ff-page-"] :is(a.nectar-button, .btn-sub-action, .plan-card-wrapper button, .add-to-cart-btn, button.whatsapp-btn, .ff-btn) i.fa {
+  position: static !important;
+  top: 0 !important;
+  vertical-align: middle;
+}
+
+/* Footer sits exactly 96px (--ff-sec-y) below the last block; Salient's -1px top margin made that 95px */
+body[class*="ff-page-"] #bb-footer { margin-top: 0 !important; }
+
+/* No visible page scrollbar on any page (scrolling by wheel, touch, trackpad and keyboard is unchanged) */
+html {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* old Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;                /* Chrome, Edge, Safari */
+  width: 0;
+  height: 0;
+}
+
+/* =====================================================================================
+   Centred titles and intro text on every page
+   Titles, eyebrow labels and short intro text are centred; long-form lists (legal text, card contents) keep their
+   own alignment so they stay easy to read.
+   ===================================================================================== */
+/* Home */
+body.ff-page-home #reviews-section h6,
+body.ff-page-home #reviews-section .container > div { text-align: center !important; }
+
+/* Menu */
+body.ff-page-menu .menu-page-title { text-align: center !important; }
+
+/* About: labels, titles and intro text of each section */
+body.ff-page-about .about-section :is(.sec-label, .sec-title, .team-header, .team-header .sec-body) { text-align: center !important; }
+body.ff-page-about .about-section .sec-label { display: block; }
+
+/* Cart: card titles */
+body.ff-page-cart :is(.cart-items-col h1, .checkout-col h2) { text-align: center !important; }
+
+/* Terms: page title block and section titles */
+body.ff-page-terms #fws_6a2786f6a6241 :is(h1, h3, .nectar-split-heading, .wpb_wrapper),
+body.ff-page-terms #fws_6a2786f6a67cf h3 { text-align: center !important; }
+body.ff-page-terms #fws_6a2786f6a6241 .nectar-split-heading { justify-content: center; }
+
+/* Footer on phones and tablets: everything centred (it is one stacked column there) */
+@media (max-width: 999px) {
+  body[class*="ff-page-"] #bb-footer,
+  body[class*="ff-page-"] #bb-footer :is(h1, h2, h3, h4, p, li, a, .wpb_wrapper, .menu-large, .menu-small, ul) { text-align: center !important; }
+  body[class*="ff-page-"] #bb-footer .footer-icons .vc_column-inner,
+  body[class*="ff-page-"] #bb-footer .footer-icons .wpb_wrapper { justify-content: center; }
+  body[class*="ff-page-"] #bb-footer .nectar_icon_wrap:last-child { margin-right: 0 !important; }
+  body[class*="ff-page-"] #bb-footer .img-with-aniamtion-wrap,
+  body[class*="ff-page-"] #bb-footer .img-with-aniamtion-wrap .inner { text-align: center !important; margin-left: auto; margin-right: auto; }
+}
+
+/* Footer on phones and tablets: the logo and social-icon columns span the full width so they centre too */
+@media (max-width: 999px) {
+  body[class*="ff-page-"] #bb-footer :is(.footer-icons, .wpb_column:has(.img-with-aniamtion-wrap)) {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body[class*="ff-page-"] #bb-footer .footer-icons .vc_column-inner,
+  body[class*="ff-page-"] #bb-footer .footer-icons .wpb_wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+  }
+  body[class*="ff-page-"] #bb-footer .img-with-aniamtion-wrap {
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: auto !important;
+  }
+}
+
+@media (max-width: 999px) {
+  body[class*="ff-page-"] #bb-footer .img-with-aniamtion-wrap .inner {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

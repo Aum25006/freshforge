@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button states - Fresh Forge</title>
+<link rel="stylesheet" href="../freshforge/fonts.googleapis.com/css9e42.css">
+<link rel="stylesheet" href="../freshforge/assets/css/tokens.css">
+<link rel="stylesheet" href="../freshforge/assets/css/brand-consistency.css">
+<style>
+  /* Layout of this reference sheet only */
+  body { margin: 0; font-family: var(--ff-font-sans); color: var(--ff-text); background: var(--ff-brand-50); }
+  main { max-width: 880px; margin: 0 auto; padding: var(--ff-space-8) var(--ff-space-4); }
+  h1 { font-size: var(--ff-fs-h2); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 var(--ff-space-2); }
+  p.lead { font-size: var(--ff-fs-body); color: var(--ff-text-secondary); margin: 0 0 var(--ff-space-7); max-width: 65ch; }
+  .grid { display: grid; grid-template-columns: 140px repeat(3, 1fr); gap: var(--ff-space-5) var(--ff-space-4); align-items: center; }
+  .grid > .h { font-weight: 600; font-size: var(--ff-fs-body); }
+  .grid > .col { font-weight: 700; font-size: var(--ff-fs-h5); text-align: center; }
+  .grid .ff-btn { width: 100%; }
+  .size-row { display: flex; flex-wrap: wrap; gap: var(--ff-space-4); margin-top: var(--ff-space-7); align-items: center; }
+  h2 { font-size: var(--ff-fs-h4); margin: var(--ff-space-7) 0 var(--ff-space-4); }
+  @media (max-width: 767px) { .grid { grid-template-columns: 90px repeat(3, 1fr); gap: var(--ff-space-4) var(--ff-space-2); } .grid .ff-btn { --btn-px: var(--ff-space-3); font-size: var(--ff-fs-body-sm) !important; } }
+</style>
+</head>
+<body class="ff-page-demo">
+<main>
+  <h1>Button states</h1>
+  <p class="lead">Pill shape, League Spartan 600, 44px tall (56px large). Primary is forest, Secondary is mint, Accent is ember and is used once per view. Hover and Active are forced on this sheet so every state can be seen at once.</p>
+
+  <div class="grid">
+    <div></div><div class="col">Primary</div><div class="col">Secondary</div><div class="col">Accent</div>
+
+    <div class="h">Default</div>
+    <button class="ff-btn">Button</button>
+    <button class="ff-btn ff-btn--secondary">Button</button>
+    <button class="ff-btn ff-btn--accent">Button</button>
+
+    <div class="h">Hover</div>
+    <button class="ff-btn is-hover">Button</button>
+    <button class="ff-btn ff-btn--secondary is-hover">Button</button>
+    <button class="ff-btn ff-btn--accent is-hover">Button</button>
+
+    <div class="h">Disabled</div>
+    <button class="ff-btn" disabled>Button</button>
+    <button class="ff-btn ff-btn--secondary" disabled>Button</button>
+    <button class="ff-btn ff-btn--accent" disabled>Button</button>
+
+    <div class="h">Active</div>
+    <button class="ff-btn is-active">Button</button>
+    <button class="ff-btn ff-btn--secondary is-active">Button</button>
+    <button class="ff-btn ff-btn--accent is-active">Button</button>
+
+    <div class="h">Loading</div>
+    <button class="ff-btn" aria-busy="true">Button...</button>
+    <button class="ff-btn ff-btn--secondary" aria-busy="true">Button...</button>
+    <button class="ff-btn ff-btn--accent" aria-busy="true">Button...</button>
+  </div>
+
+  <h2>Sizes</h2>
+  <div class="size-row">
+    <button class="ff-btn">Medium 44px</button>
+    <button class="ff-btn ff-btn--lg">Large 56px</button>
+    <button class="ff-btn ff-btn--secondary ff-btn--lg">See full menu</button>
+  </div>
+</main>
+</body>
+</html>

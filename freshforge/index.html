@@ -3527,13 +3527,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/home.css">
+<link rel="stylesheet" href="assets/css/brand-consistency.css">
 <script>try{var t=localStorage.getItem("ff-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pullcord@0.1.0/dist/pullcord.css">
 <link rel="stylesheet" href="assets/css/theme-dark.css">
 </head>
 
 <body
-	class="home wp-singular page-template-default page page-id-561 wp-theme-salient wp-child-theme-freshforge material wpb-js-composer js-comp-ver-8.4.2 vc_responsive"
+	class="ff-page-home home wp-singular page-template-default page page-id-561 wp-theme-salient wp-child-theme-freshforge material wpb-js-composer js-comp-ver-8.4.2 vc_responsive"
 	data-footer-reveal="false" data-footer-reveal-shadow="none" data-header-format="centered-logo-between-menu-alt"
 	data-body-border="off" data-boxed-style="" data-header-breakpoint="1000" data-dropdown-style="minimal"
 	data-cae="easeOutQuart" data-cad="1400" data-megamenu-width="contained" data-aie="none" data-ls="fancybox"
@@ -3944,15 +3945,15 @@
   
   <!-- 1. The Original Title and Button (Above the images) -->
   <div class="container">
-    <div class="row vc_row-flex vc_row-o-content-middle" style="margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center;">
+    <div class="row vc_row-flex vc_row-o-content-middle ff-menu-head" style="margin-bottom: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
       
-      <!-- "Our Menu" Text (Left side) -->
-      <div class="vc_col-sm-8 force-phone-text-align-center">
+      <!-- "Our Menu" title, centred, with its button below -->
+      <div class="vc_col-sm-12 force-phone-text-align-center ff-menu-head-title" style="text-align: center;">
         <h6 style="color: #002c1f; margin-bottom: 0; font-weight: 700; font-family: 'League Spartan', sans-serif; font-size: 34px; line-height: 1.2;">Our Menu</h6>
       </div>
       
-      <!-- "See full menu" Button (Right side) -->
-      <div class="vc_col-sm-4 force-phone-text-align-center" style="text-align: right; display: flex; justify-content: flex-end;">
+      <!-- "See full menu" button, centred below the title -->
+      <div class="vc_col-sm-12 force-phone-text-align-center ff-menu-head-cta" style="display: flex; justify-content: center;">
         <a class="nectar-button large regular extra-color-1 has-icon regular-button" style="border-radius: 50px;" href="menu/index.html">
           <span>See full menu</span><i class="fa fa-angle-right"></i>
         </a>
@@ -4298,6 +4299,32 @@
 
   document.getElementById('stagger-prev').addEventListener('click', function(){ handleMove(-1); });
   document.getElementById('stagger-next').addEventListener('click', function(){ handleMove(1); });
+  // Swipe / drag sideways, trackpad or shift+wheel scroll sideways, and arrow keys all move the cards.
+  var startX = null, startY = null, swiped = false, lastWheel = 0;
+  container.style.touchAction = 'pan-y';
+  container.setAttribute('tabindex', '0');
+  container.addEventListener('pointerdown', function(e){ startX = e.clientX; startY = e.clientY; swiped = false; });
+  container.addEventListener('pointerup', function(e){
+    if (startX === null) return;
+    var dx = e.clientX - startX, dy = e.clientY - startY;
+    startX = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { swiped = true; handleMove(dx < 0 ? 1 : -1); }
+  });
+  container.addEventListener('pointercancel', function(){ startX = null; });
+  container.addEventListener('click', function(e){ if (swiped) { e.stopPropagation(); e.preventDefault(); swiped = false; } }, true);
+  container.addEventListener('wheel', function(e){
+    var dx = e.deltaX || (e.shiftKey ? e.deltaY : 0);
+    if (Math.abs(dx) < 8 || Math.abs(dx) < Math.abs(e.deltaY) && !e.shiftKey) return;
+    e.preventDefault();
+    var now = Date.now();
+    if (now - lastWheel < 350) return;
+    lastWheel = now;
+    handleMove(dx > 0 ? 1 : -1);
+  }, { passive: false });
+  container.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight') { e.preventDefault(); handleMove(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); handleMove(-1); }
+  });
 
   window.addEventListener('resize', function(){
     cardSize = window.matchMedia('(min-width:640px)').matches ? 365 : 290;
@@ -4346,6 +4373,7 @@
 																			style="">
 																			<div class="row-bg-wrap">
 																				<div class="row-bg"></div>
+<div class="ff-follow-grid" aria-hidden="true"><span></span><span></span><span></span></div>
 																			</div>
 																			<div
 																				class="row_col_wrap_12_inner col span_12  left">
@@ -4978,8 +5006,7 @@
 																		style="margin-right: 8px; ">
 																		<div
 																			class="nectar_icon icon_color_custom_d5edc4 ">
-																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr"
-																				target="_blank"></a><i
+																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr" target="_blank" rel="noopener" aria-label="Fresh Forge on Facebook"></a><i
 																				style="font-size: 12px; line-height: 18px; height: 18px; width: 18px;"
 																				class="fa fa-facebook"></i></div>
 																	</div>
@@ -4989,8 +5016,7 @@
 																		style="margin-right: 8px; ">
 																		<div
 																			class="nectar_icon icon_color_custom_d5edc4 ">
-																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr"
-																				target="_blank"></a><i
+																			<a href="https://www.instagram.com/_freshforge_?igsh=NHNlZzFrYTV2cnpu&utm_source=qr" target="_blank" rel="noopener" aria-label="Fresh Forge on Instagram"></a><i
 																				style="font-size: 12px; line-height: 18px; height: 18px; width: 18px;"
 																				class="fa fa-instagram"></i></div>
 																	</div>
