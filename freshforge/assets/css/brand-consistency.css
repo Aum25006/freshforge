@@ -1,6 +1,6 @@
 /*
  * Brand consistency layer: applies design-rules/BRAND_RULES.md to every page.
- * Loaded after tokens.css and inner.css (and before theme-dark.css), so it only uses var(--ff-*) tokens.
+ * Loaded after tokens.css and inner.css (home.css on the home page), so it only uses var(--ff-*) tokens.
  * Each page's <body> carries ff-page-{home|about|menu|subscription|cart|terms}.
  * The home hero wordmark ("welcome") is the one display exception and is not touched here.
  * Salient and the pages' inline styles use !important / style="", so overrides need !important too.
@@ -526,7 +526,7 @@ body.ff-page-home #fws_6a270e4fc1658 .column-image-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  /* A long, gently eased 90px fade from the testimonials' mint (#f3faec), same curve as dark mode, so the seam is soft without
+  /* A long, gently eased 90px fade from the testimonials' mint (#f3faec), so the seam is soft without
      washing the photos out. The rest is --ff-brand-900 at 55%. */
   background: rgba(0, 44, 31, 0.55); /* tint only: no fade at the top edge */
   pointer-events: none;
@@ -587,68 +587,10 @@ body.ff-page-home .ff-follow-grid { display: none; }
 body.ff-page-home #rewards-panel > .row-bg-wrap,
 body.ff-page-home #rewards-panel canvas.nectar-animated-gradient { display: none !important; }
 
-/* ================= Dark mode: testimonials need three distinct tones (stage, side cards, active card) =================
-   stage #0f1b15  <  side cards #1c3529 with a lighter edge and shadow  <  active card mint */
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials { background: #0f1b15 !important; }
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) {
-  background: #1c3529 !important;
-  color: #e6f4da !important;
-  border-color: #3a6652 !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
-}
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) h3,
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) p { color: #e6f4da !important; }
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center) .st-corner { background: #3a6652 !important; }
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card:not(.center):hover { border-color: var(--ff-brand-300) !important; }
-html[data-theme="dark"] body.ff-page-home #stagger-testimonials .st-card.center {
-  background: var(--ff-brand-200) !important;
-  border-color: var(--ff-brand-200) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
-}
-html[data-theme="dark"] body.ff-page-home #stagger-prev,
-html[data-theme="dark"] body.ff-page-home #stagger-next {
-  background: #1c3529 !important;
-  color: #e6f4da !important;
-  border: 1px solid #3a6652 !important;
-}
-html[data-theme="dark"] body.ff-page-home #stagger-prev:hover,
-html[data-theme="dark"] body.ff-page-home #stagger-next:hover {
-  background: var(--ff-brand-200) !important;
-  color: var(--ff-brand-900) !important;
-}
-
 /* ================= Footer: edge to edge on every page, whatever the scrollbar width =================
    Salient sizes the footer's own background layer from the window width, which misses the scrollbar and
    leaves a few pixels of page colour on both sides. The full-width wrapper carries the colour as well. */
-body[class*="ff-page-"] .nectar-global-section.before-footer,
-html[data-theme="dark"] body[class*="ff-page-"] .nectar-global-section.before-footer { background-color: var(--ff-brand-900) !important; }
-
-/* ================= Dark mode seams ================= */
-/* Bowl strip (dark mode): same band colour, straight edges, no hairline.
-   The strip's texture is a flat light grey (#f2f2f4) multiplied onto #14231c = rgb(19 33 27). At fractional pixel
-   positions the light grey leaked out as a thin white line on the top and bottom edge, so the result colour is used directly. */
-html[data-theme="dark"] body.ff-page-home .menu-marquee-section {
-  background-image: none !important;
-  background-color: rgb(19, 33, 27) !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  outline: 0 !important;
-  isolation: isolate;
-}
-/* Texture ("impression") like light mode: the same grain image, inverted so its marks read as faint light streaks on the dark band */
-html[data-theme="dark"] body.ff-page-home .menu-marquee-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: url("../../55a72b88-004d-4c4a-bda3-8691e1282ac4.png") center / cover no-repeat;
-  filter: invert(1) brightness(5);
-  mix-blend-mode: screen;
-  opacity: 0.14;
-  pointer-events: none;
-}
-html[data-theme="dark"] body.ff-page-home .menu-marquee-section .marquee-content { position: relative; z-index: 2; }
-
+body[class*="ff-page-"] .nectar-global-section.before-footer { background-color: var(--ff-brand-900) !important; }
 
 /* "Follow us on" band: no hairline and no side gaps */
 /* a 1px overlap closes the subpixel gap that let the darker page colour show as a black line */
@@ -688,7 +630,7 @@ body.ff-page-home #stagger-testimonials .st-card { margin-top: calc(var(--ff-spa
 }
 
 /* =====================================================================================
-   Section rhythm: one vertical spacing system for every page, light and dark mode.
+   Section rhythm: one vertical spacing system for every page.
      --ff-sec-y     section padding, top and bottom      64px phone / 96px from 768px
      --ff-sec-y-lg  hero bands                           96px phone / 128px from 768px
      space between a section title and its content        48px (--ff-space-7)
